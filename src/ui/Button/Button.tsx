@@ -2,30 +2,25 @@ import React, {
   type CSSProperties,
   type MouseEvent,
   type ReactNode,
-} from "react";
+} from 'react'
 
-import cls from "./Button.module.scss";
-import type IconComponent from "../icons/IconComponent";
-import { classNames } from "../../helpers/classNames";
+import cls from './Button.module.scss'
+import type IconComponent from '../icons/IconComponent'
+import { classNames } from '../../helpers/classNames'
 
-export enum ButtonVariants {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
-  TERTIARY = "tertiary",
-  ICON = "icon",
-}
+export type ButtonVariants = 'primary' | 'secondary' | 'tertiary' | 'icon'
 
 type Props = {
-  onClick?: (e: MouseEvent) => void;
-  className?: string;
-  variant?: ButtonVariants;
-  type?: "button" | "submit";
-  disabled?: boolean;
-  Icon?: typeof IconComponent | null;
-  title?: string;
-  children?: ReactNode;
-  style?: CSSProperties;
-};
+  onClick?: (e: MouseEvent) => void
+  className?: string
+  variant?: ButtonVariants
+  type?: 'button' | 'submit'
+  disabled?: boolean
+  Icon?: typeof IconComponent | null
+  title?: string
+  children: ReactNode
+  style?: CSSProperties
+}
 
 // const getBtnStyles = (variant: ButtonVariants) => {
 //   switch (variant) {
@@ -83,8 +78,8 @@ const Button: React.FC<Props> = ({
   className,
   onClick,
   disabled = false,
-  type = "button",
-  variant = ButtonVariants.PRIMARY,
+  type = 'button',
+  variant = 'primary',
   Icon,
   title,
   style,
@@ -93,16 +88,14 @@ const Button: React.FC<Props> = ({
     <button
       title={title}
       className={classNames(cls.Button, { [cls[variant]]: true }, [className])}
-      // css={getBtnStyles(variant)}
       disabled={disabled}
       type={type}
       onClick={onClick}
-      style={style}
-    >
+      style={style}>
       {Icon && <Icon />}
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
