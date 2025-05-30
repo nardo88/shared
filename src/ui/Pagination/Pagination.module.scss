@@ -1,0 +1,111 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 12px;
+}
+
+.item {
+  min-width: 24px;
+  height: 24px;
+  padding: 4px 5px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    border-radius: 50px;
+  }
+}
+
+.dotItem {
+  width: 24px;
+  height: 24px;
+  padding: 4px 5px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--content-900);
+  text-align: center;
+  cursor: default;
+  background-color: transparent;
+  border: none;
+}
+
+.current {
+  width: 24px;
+  height: 24px;
+  padding: 4px 5px;
+  border-radius: 50%;
+}
+
+.prev {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.sidebtn {
+  width: 20px !important;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--content-900);
+  }
+
+  &.disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > span {
+    padding-right: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--base-400);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.counterSelector {
+  & > div {
+    background-color: transparent;
+  }
+}
+
+.total {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--content-900);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

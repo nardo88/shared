@@ -1,0 +1,62 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 16px;
+  align-items: center;
+}
+
+.valueWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  padding: 8px 12px;
+  border: 1px solid var(--base-400);
+  border-radius: 8px;
+}
+
+.error {
+  border-color: var(--additional-error);
+}
+
+.percentInput {
+  width: 28px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: right;
+
+  -moz-appearance: textfield;
+  background: var(--base-100);
+  border: none;
+  outline: none;
+  &::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+}
+.percentTotal {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-700);
+}
+
+.percentArrows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.controlArrow {
+  font-size: 14px;
+  line-height: 10px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transform: rotate(90deg);
+}
+
+.defaultCursor {
+  cursor: default;
+}

@@ -1,0 +1,50 @@
+.label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 0 12px;
+  overflow: hidden;
+  border: 1px solid var(--base-400);
+  border-radius: 6px;
+}
+
+.inputWrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  input {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 124%;
+    border: none;
+  }
+
+  span {
+    color: var(--content-800);
+  }
+}
+
+.errorText {
+  height: 12px;
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.sublabel {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-800);
+}
+
+.error {
+  color: var(--additional-error);
+  border-color: var(--additional-error);
+}

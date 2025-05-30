@@ -1,0 +1,5 @@
+export { default as DEFlag } from './DEFlag'
+export { default as INFlag } from './INFlag'
+export { default as RuFlag } from './RuFlag'
+export { default as UKFlag } from './UKFlag'
+export { default as ZHFlag } from './ZHFlag'

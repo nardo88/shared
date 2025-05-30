@@ -1,0 +1,15 @@
+import React from "react";
+
+import IconComponent, { type IconProps } from "../IconComponent";
+
+export const RegisterIcon: React.FC<IconProps> = (props): React.ReactNode => (
+  <IconComponent {...props} fill="none" id="RegisterIcon">
+    <path
+      d="M13.333 2.5V5.83333M6.66634 2.5V5.83333M3.33301 9.16667H16.6663M9.16634 12.5H9.99967V15M3.33301 5.83333C3.33301 5.39131 3.5086 4.96738 3.82116 4.65482C4.13372 4.34226 4.55765 4.16667 4.99967 4.16667H14.9997C15.4417 4.16667 15.8656 4.34226 16.1782 4.65482C16.4907 4.96738 16.6663 5.39131 16.6663 5.83333V15.8333C16.6663 16.2754 16.4907 16.6993 16.1782 17.0118C15.8656 17.3244 15.4417 17.5 14.9997 17.5H4.99967C4.55765 17.5 4.13372 17.3244 3.82116 17.0118C3.5086 16.6993 3.33301 16.2754 3.33301 15.8333V5.83333Z"
+      stroke="#999999"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </IconComponent>
+);

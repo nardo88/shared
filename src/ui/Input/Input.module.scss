@@ -1,0 +1,88 @@
+.wrapper {
+  position: relative;
+}
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sublabel {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-800);
+}
+
+.limit {
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--content-800);
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: var(--base-100);
+  border: 1px solid var(--base-400);
+  border-radius: 8px;
+}
+
+.haveCross {
+  padding: 8px 32px 8px 12px;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.errorText {
+  height: 12px;
+  font-size: 12px !important;
+  line-height: 140% !important;
+}
+
+.error label {
+  color: var(--additional-error);
+}
+
+.error .input {
+  border-color: var(--additional-error);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.withIcon {
+  padding-left: 30px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+.disabled {
+  color: var(--content-800);
+  pointer-events: none;
+}

@@ -1,0 +1,64 @@
+.title {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topWrapper {
+  padding: 8px;
+  background: var(--base-200);
+  border-radius: 8px;
+}
+
+.arrowWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.titleWrapper {
+  width: fit-content;
+}
+
+.withIconWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.arrow {
+  transform: rotate(0);
+}
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+.rightSide {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.subtitleContainer {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.cup {
+  cursor: pointer;
+}
+
+.error {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 120%;
+}

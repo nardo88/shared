@@ -1,0 +1,85 @@
+@import '@styles/mixins';
+
+.SettingsMenu {
+  position: relative;
+}
+
+.settingsBar {
+  cursor: pointer;
+}
+
+.settings {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: var(--z-index-4);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 0;
+  max-height: 250px;
+  padding: 8px 4px;
+  overflow-y: auto;
+  visibility: hidden;
+  background-color: var(--base-100);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  @include scroll;
+
+  @media (max-width: 768px) {
+    right: -112px;
+  }
+}
+
+.menuItem {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 4px 8px;
+  color: var(--content-900);
+  cursor: pointer;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--base-300);
+  }
+
+  & > p {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+.active {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+  animation: show 0.3s forwards;
+}
+
+.showUnder {
+  top: auto;
+  bottom: 100%;
+}
+
+.disabled {
+  cursor: default;
+  & > p {
+    color: var(--content-800);
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,114 @@
+.wrapper {
+  position: relative;
+}
+
+.label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: var(--base-100);
+  border: 1px solid var(--base-400);
+  border-radius: 8px;
+}
+
+.noValue {
+  height: 38px;
+}
+
+.dropDown {
+  position: absolute;
+  top: 105%;
+  right: 0;
+  left: 0;
+  z-index: var(--z-index-4);
+  width: fit-content;
+  min-width: 100%;
+  max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: var(--base-100);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--content-700);
+    border-radius: 10px;
+  }
+}
+
+.selectOption {
+  padding: 8px 12px;
+  color: var(--content-900);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--base-400);
+  }
+
+  @media (max-width: 768px) {
+    padding: 6px 8px;
+  }
+}
+
+.errorText {
+  height: 12px;
+  font-size: 12px;
+  line-height: 140%;
+}
+
+div.error {
+  color: var(--additional-error);
+  border: 1px solid var(--additional-error);
+}
+
+label.error {
+  color: var(--additional-error);
+}
+
+.arrow {
+  float: right;
+  height: 18px;
+  margin-left: 4px;
+
+  & > svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.rotate {
+  & > svg {
+    transform: rotate(180deg);
+  }
+}
+
+.cup {
+  cursor: pointer;
+}
+
+.disabled {
+  color: var(--content-800);
+  cursor: default;
+}

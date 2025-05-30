@@ -1,0 +1,75 @@
+.InputToggle {
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  min-width: 36px;
+  height: 22px;
+  background-color: var(--content-700);
+  border-radius: 20px;
+
+  & > input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  & > input:checked + .slider {
+    background-color: var(--additional-success);
+  }
+
+  & > input:checked + .slider::before {
+    transform: translate(14px);
+  }
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  background-color: var(--content-700);
+  border-radius: 20px;
+  transition: 0.2s;
+
+  &::before {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    content: '';
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.2s;
+  }
+}
+
+.label {
+  width: fit-content;
+  padding-top: 3px;
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-900);
+  cursor: pointer;
+  user-select: none;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+}
+
+.sublabel {
+  padding-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-800);
+}

@@ -1,0 +1,103 @@
+.CheckboxSelector {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.inputArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 33px;
+  padding: 6px 12px;
+  background-color: var(--base-100);
+  border: 1px solid var(--base-400);
+  border-radius: 8px;
+
+  & > span:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}
+
+.chosen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  padding: 4px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  background: var(--base-300);
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.listWrapper {
+  position: absolute;
+  top: calc(100% + 6px);
+  z-index: var(--z-index-2);
+  width: 100%;
+
+  max-height: 300px;
+  padding: 8px 4px 8px 12px;
+  overflow: auto;
+
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-800);
+
+  background-color: var(--base-100);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+}
+
+.errorText {
+  height: 12px;
+  font-size: 12px !important;
+  line-height: 140% !important;
+}
+
+.error label {
+  color: var(--additional-error);
+}
+
+.error .inputArea {
+  border-color: var(--additional-error);
+}
+
+.arrow {
+  float: right;
+  height: 18px;
+  margin-left: 4px;
+
+  & > svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.rotate {
+  & > svg {
+    transform: rotate(180deg);
+  }
+}
+
+.firstLevel {
+  padding-left: 10px;
+}
+
+.checkbox {
+  width: fit-content;
+}

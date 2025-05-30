@@ -1,0 +1,17 @@
+.Spinner {
+  display: flex;
+  justify-content: center;
+}
+
+.withBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: var(--overlay-background);
+}

@@ -1,0 +1,75 @@
+@import '@styles/mixins';
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.label {
+  padding-bottom: 2px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-900);
+}
+
+.limit {
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--content-800);
+}
+
+.wrapper {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: var(--base-100);
+  border: 1px solid var(--base-400);
+  border-radius: 8px;
+
+  & > div {
+    font-size: 14px;
+    line-height: 20px;
+    outline: none;
+  }
+}
+
+.medium {
+  padding: 0;
+  border: none;
+}
+
+.inputStyle {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  resize: none;
+  border: none;
+  outline: none;
+  @include scroll;
+}
+
+.resize {
+  resize: vertical;
+}
+
+.error {
+  & > div {
+    border-color: var(--additional-error);
+  }
+
+  & .label {
+    color: var(--additional-error);
+  }
+}
+
+.errorText {
+  height: 12px;
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.mediumDiv {
+  div {
+    outline: none;
+  }
+}

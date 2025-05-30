@@ -1,0 +1,128 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.inputArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  padding: 8px 12px;
+  border: 1px solid var(--base-400);
+  border-radius: 8px;
+}
+
+.inputArea > span:first-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.hasValue {
+  padding: 4px 6px;
+}
+
+.choosen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  padding: 4px 8px;
+  cursor: pointer;
+  background: var(--base-300);
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.listWrapper {
+  position: absolute;
+  top: calc(100% + 6px);
+  z-index: var(--z-index-0);
+  width: 100%;
+  max-height: 300px;
+  padding: 8px 4px 8px 12px;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--content-800);
+  background-color: var(--base-100);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+}
+
+.checkbox {
+  margin-bottom: 0;
+}
+
+.errorText {
+  height: 12px;
+  font-size: 12px !important;
+  line-height: 140% !important;
+}
+
+.error label {
+  color: var(--additional-error);
+}
+
+.error .inputArea {
+  border-color: var(--additional-error);
+}
+
+.arrow {
+  float: right;
+  height: 18px;
+  margin-left: 4px;
+}
+
+.arrow > svg {
+  width: 18px;
+  height: 18px;
+}
+
+.rotate > svg {
+  transform: rotate(180deg);
+}
+
+.pin,
+.close {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 2px 2px 2px 6px;
+  font-size: 13px;
+  background-color: var(--base-400);
+  border-radius: 6px;
+}
+
+.close {
+  padding: 0;
+  cursor: pointer;
+}
+
+.morePins {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px;
+  font-size: 13px;
+  background-color: var(--base-400);
+  border-radius: 6px;
+}
+
+.dots {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 3px;
+}
