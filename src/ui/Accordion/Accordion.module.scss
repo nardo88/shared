@@ -1,35 +1,23 @@
-.title {
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
+.accordion {
+  border: 1px solid var(--base-400);
+  border-radius: 6px;
 }
 
 .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.topWrapper {
-  padding: 8px;
-  background: var(--base-200);
-  border-radius: 8px;
-}
-
-.arrowWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
   cursor: pointer;
+  padding: 5px 10px;
+}
+
+.wrapper {
+  padding: 5px 10px;
+  margin-top: 5px;
 }
 
 .titleWrapper {
-  width: fit-content;
-}
-
-.withIconWrapper {
+  user-select: none;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -37,28 +25,26 @@
 
 .arrow {
   transform: rotate(0);
+  transition: transform 0.3s ease-in-out;
 }
 .arrowOpen {
   transform: rotate(180deg);
 }
 
-.rightSide {
-  display: flex;
-  gap: 24px;
-  align-items: center;
+.bottom {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.3s ease; /* Анимация изменения высоты */
 }
 
-.subtitleContainer {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-.cup {
-  cursor: pointer;
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 8px;
+  min-height: 0;
 }
 
-.error {
-  font-size: 13px;
-  font-style: italic;
-  line-height: 120%;
+.isOpen {
+  grid-template-rows: 1fr;
 }

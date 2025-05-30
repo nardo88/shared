@@ -14,30 +14,30 @@ import {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from 'react'
 
-import { Text } from "../Text/Text";
+import { Text } from '../Text/Text'
 
-import cls from "./SettingsMenu.module.scss";
-import { classNames } from "../../helpers/classNames";
-import SettingsIcon from "../icons/SettingsIcon";
+import cls from './SettingsMenu.module.scss'
+import { classNames } from '../../helpers/classNames'
+import SettingsIcon from '../icons/SettingsIcon'
 
 export type OptionItem = {
-  title: string;
-  onClick: (e: MouseEvent<HTMLDivElement>, id: string) => void;
-  color?: string;
-  icon?: ReactElement;
-  disabled?: boolean;
-};
+  title: string
+  onClick: (e: MouseEvent<HTMLDivElement>, id: string) => void
+  color?: string
+  icon?: ReactElement
+  disabled?: boolean
+}
 
 type SettingsMenuProps = {
-  id: string;
-  options: Array<OptionItem>;
-  className?: string;
-  menuText?: ReactNode;
-  wrapper?: RefObject<HTMLElement>;
-  getHide?: (cb: () => void) => void;
-};
+  id: string
+  options: Array<OptionItem>
+  className?: string
+  menuText?: ReactNode
+  wrapper?: RefObject<HTMLElement>
+  getHide?: (cb: () => void) => void
+}
 
 export const SettingsMenu = memo(
   ({
@@ -48,58 +48,62 @@ export const SettingsMenu = memo(
     wrapper,
     getHide,
   }: SettingsMenuProps) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const optionRef = useRef<HTMLDivElement>(null);
-    const [isOpen, setIsOpen] = useState<null | string>(null);
+    const ref = useRef<HTMLDivElement>(null)
+    const optionRef = useRef<HTMLDivElement>(null)
+    const [isOpen, setIsOpen] = useState<null | string>(null)
 
     const openMenu = () => {
       if (ref.current && wrapper?.current && optionRef.current) {
-        const settingRect = ref.current?.getBoundingClientRect();
-        const wrapperRect = wrapper.current?.getBoundingClientRect();
-        const posY = settingRect.y - wrapperRect.y;
-        const toEnd = wrapperRect.height - posY;
+        const settingRect = ref.current?.getBoundingClientRect()
+        const wrapperRect = wrapper.current?.getBoundingClientRect()
+        const posY = settingRect.y - wrapperRect.y
+        const toEnd = wrapperRect.height - posY
         if (toEnd <= optionRef.current.children[0].clientHeight + 40) {
-          optionRef.current.classList.add(cls.showUnder);
+          optionRef.current.classList.add(cls.showUnder)
         }
       }
-      setIsOpen(isOpen ? null : id);
-    };
+      setIsOpen(isOpen ? null : id)
+    }
 
-    const hideMenu = (e: any) => {
-      if (ref.current && !ref.current.contains(e.target) && optionRef.current) {
-        setIsOpen(null);
-        optionRef.current.classList.remove(cls.showUnder);
+    const hideMenu = (e: globalThis.MouseEvent) => {
+      if (
+        ref.current &&
+        !ref.current.contains(e.target as Node) &&
+        optionRef.current
+      ) {
+        setIsOpen(null)
+        optionRef.current.classList.remove(cls.showUnder)
       }
-    };
+    }
 
     useEffect(() => {
-      window.addEventListener("click", hideMenu);
+      window.addEventListener('click', (e) => hideMenu(e))
       if (wrapper?.current) {
-        wrapper?.current.addEventListener("click", hideMenu);
+        wrapper?.current.addEventListener('click', hideMenu)
       }
       return () => {
-        window.removeEventListener("click", hideMenu);
+        window.removeEventListener('click', hideMenu)
         if (wrapper?.current) {
-          wrapper?.current.removeEventListener("click", hideMenu);
+          wrapper.current.removeEventListener('click', hideMenu)
         }
-      };
-    }, []);
+      }
+    }, [])
 
     useEffect(() => {
       if (isOpen) {
-        optionRef!.current?.classList.add(cls.active);
+        optionRef!.current?.classList.add(cls.active)
       } else {
-        optionRef!.current?.classList.remove(cls.active);
+        optionRef!.current?.classList.remove(cls.active)
       }
-    }, [isOpen]);
+    }, [isOpen])
 
     useEffect(() => {
       getHide?.(() => {
-        setIsOpen(null);
-      });
-    }, []);
+        setIsOpen(null)
+      })
+    }, [])
 
-    if (!options.length) return null;
+    if (!options.length) return null
 
     return (
       <div className={classNames(cls.SettingsMenu, {}, [className])} ref={ref}>
@@ -118,11 +122,10 @@ export const SettingsMenu = memo(
                       [cls.disabled]: item.disabled,
                     })}
                     onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                      if (item.disabled) return;
-                      item.onClick(e, id);
-                      setIsOpen(null);
-                    }}
-                  >
+                      if (item.disabled) return
+                      item.onClick(e, id)
+                      setIsOpen(null)
+                    }}>
                     {item.icon && item.icon}
                     <Text>{item.title}</Text>
                   </div>
@@ -131,6 +134,6 @@ export const SettingsMenu = memo(
           </div>
         </div>
       </div>
-    );
+    )
   }
-);
+)
