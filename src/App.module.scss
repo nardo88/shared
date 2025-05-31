@@ -4,3 +4,13 @@
   gap: 30px;
   padding: 30px;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  div {
+    padding: 30px;
+  }
+}

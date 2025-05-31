@@ -1,4 +1,4 @@
-@import '@styles/mixins';
+@import '../../index.scss';
 
 .contextMenu {
   border-color: transparent;
@@ -29,11 +29,12 @@
   display: flex;
   flex-direction: column;
   max-height: 250px;
-  padding: 8px 4px;
+  padding: 8px;
   overflow-y: auto;
   background-color: var(--base-100);
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+
   @include scroll;
 }
 
@@ -44,13 +45,13 @@
   align-items: center;
   padding: 4px 8px;
   font-weight: 400;
-  line-height: 24px;
   color: var(--content-900);
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 4px;
 
   & > p {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 125%;
     text-align: left;
   }
 
