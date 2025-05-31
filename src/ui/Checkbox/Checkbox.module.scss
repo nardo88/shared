@@ -1,12 +1,7 @@
-.wrapper {
+.container {
   display: flex;
   flex-direction: column;
   width: fit-content;
-
-  & > label {
-    display: flex;
-    align-items: center;
-  }
 
   & > label > input {
     display: none;
@@ -17,39 +12,74 @@
   }
 }
 
-.icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .label {
-  position: relative;
-  box-sizing: border-box;
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-}
-
-.span {
   position: relative;
   display: inline-block;
   padding-top: 2px;
   padding-left: 8px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 125%;
   color: var(--content-900);
   user-select: none;
 }
 
-.sublabel {
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--content-800);
+.value {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--additional-success);
+  border-radius: 4px;
+  position: relative;
+  padding: 6px;
+
+  &:before {
+    content: '';
+    width: 12px;
+    display: block;
+    height: 12px;
+    border-radius: 3px;
+    background: var(--additional-success);
+    transform: scale(0);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transition: transform 0.1s ease-in-out;
+  }
+}
+
+.value.checked {
+  &:before {
+    transform: scale(1);
+  }
+}
+
+.disabled {
+  cursor: default;
+
+  .label {
+    color: var(--content-800);
+  }
+
+  .value {
+    border-color: var(--content-700);
+
+    &:before {
+      background: var(--content-700);
+    }
+  }
+}
+
+.error {
+  .label {
+    color: var(--additional-error);
+  }
+}
+
+.errorText {
+  font-size: 13px;
 }

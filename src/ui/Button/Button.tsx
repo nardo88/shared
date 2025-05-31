@@ -22,57 +22,6 @@ type Props = {
   style?: CSSProperties
 }
 
-// const getBtnStyles = (variant: ButtonVariants) => {
-//   switch (variant) {
-//     case ButtonVariants.PRIMARY: {
-//       return css`
-//         background: ${colors.ctaPrimary};
-//         color: ${colors.invertColor || "var(--content-900)"};
-
-//         svg {
-//           stroke: ${colors.invertColor || "var(--content-900)"};
-
-//           path {
-//             stroke: ${colors.invertColor || "var(--content-900)"};
-//           }
-//         }
-//       `;
-//     }
-//     case ButtonVariants.SECONDARY: {
-//       return css`
-//         border: 1.5px solid ${colors.ctaPrimary};
-//         background: ${colors.cta10};
-//         color: ${colors.ctaPrimary};
-
-//         svg {
-//           stroke: ${colors.ctaPrimary};
-
-//           path {
-//             stroke: ${colors.ctaPrimary};
-//           }
-//         }
-//       `;
-//     }
-//     case ButtonVariants.ICON: {
-//       return css`
-//         border: 1.5px solid ${colors.ctaPrimary};
-//         background: ${colors.cta10};
-//         height: auto;
-//         color: ${colors.ctaPrimary};
-
-//         svg {
-//           stroke: ${colors.ctaPrimary};
-//         }
-
-//         &:hover {
-//           background: ${colors.ctaPrimary};
-//         }
-//       `;
-//     }
-//   }
-//   return undefined;
-// };
-
 const Button: React.FC<Props> = ({
   children,
   className,
