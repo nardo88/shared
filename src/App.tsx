@@ -1,32 +1,19 @@
+import { useState } from 'react'
 import cls from './App.module.scss'
 import { classNames } from './helpers/classNames'
-import { ContextMenu, type IOptions } from './ui/ContextMenu/ContextMenu'
+import { CustomRange } from './ui/CustomRange'
 
 export function App() {
-  const options = [
-    { label: 'first', value: 'first' },
-    { label: 'second', value: 'second' },
-    { label: 'third', value: 'third', disabled: true },
-  ]
-
-  const opt: IOptions[] = [
-    {
-      title: 'Remove',
-      color: 'red',
-      onClick: () => console.log('item deleted'),
-    },
-    { title: 'Edit', onClick: () => console.log('item edited') },
-  ]
+  const [value, setValue] = useState(0)
 
   return (
     <div className={classNames(cls.app, {}, ['container'])}>
-      <div className={cls.wrapper}>
-        {options.map((item) => (
-          <ContextMenu options={opt} key={item.value}>
-            <div>{item.label}</div>
-          </ContextMenu>
-        ))}
-      </div>
+      <CustomRange
+        label={'some label'}
+        value={value}
+        onChange={setValue}
+        variant="percent"
+      />
     </div>
   )
 }

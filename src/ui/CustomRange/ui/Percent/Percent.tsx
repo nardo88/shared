@@ -4,58 +4,57 @@ import {
   type PointerEvent,
   useMemo,
   useRef,
-} from "react";
+} from 'react'
 
-import { getLeftPercentValue } from "../../modules";
-import { InputValue } from "../InputValue/InputValue";
+import { getLeftPercentValue } from '../../modules'
+import { InputValue } from '../InputValue/InputValue'
 
-import cls from "./Percent.module.scss";
-import type { ICustomRangePercentProps } from "../../types";
-import { classNames } from "../../../../helpers/classNames";
+import cls from './Percent.module.scss'
+import type { ICustomRangePercentProps } from '../../types'
+import { classNames } from '../../../../helpers/classNames'
 
 export const Percent: FC<ICustomRangePercentProps> = (props) => {
-  const { value, onChange, errorText, disabled } = props;
-  const cursor = useRef<HTMLDivElement | null>(null);
-  const line = useRef<HTMLDivElement | null>(null);
+  const { value, onChange, errorText, disabled } = props
+  const cursor = useRef<HTMLDivElement | null>(null)
+  const line = useRef<HTMLDivElement | null>(null)
 
   const items = useMemo(
     () => Array.apply(null, Array(10)).map((_, i) => i + 1),
     []
-  );
+  )
 
   const dragStart = (e: PointerEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    if (e?.buttons !== 1 || !cursor.current || !line.current || disabled)
-      return;
-    const posX = e.clientX;
-    const lineWidth = line.current.getBoundingClientRect().width;
+    e.stopPropagation()
+    e.preventDefault()
+    if (e?.buttons !== 1 || !cursor.current || !line.current || disabled) return
+    const posX = e.clientX
+    const lineWidth = line.current.getBoundingClientRect().width
     function dragMove(event: globalThis.PointerEvent) {
-      const dif = event.clientX - posX; // в пикселях
-      const percent = Math.floor((dif / lineWidth) * 100);
-      const newValue = value + percent;
-      if (newValue > 100 || newValue < 0) return;
+      const dif = event.clientX - posX // в пикселях
+      const percent = Math.floor((dif / lineWidth) * 100)
+      const newValue = value + percent
+      if (newValue > 100 || newValue < 0) return
       if (value + percent < 100 || value + percent > 0)
-        onChange(value + percent);
+        onChange(value + percent)
     }
 
-    document.onpointermove = dragMove;
+    document.onpointermove = dragMove
 
     function dragEnd() {
-      document.onpointerup = null;
-      document.onpointermove = null;
+      document.onpointerup = null
+      document.onpointermove = null
     }
 
-    document.onpointerup = dragEnd;
-  };
+    document.onpointerup = dragEnd
+  }
 
   const clickHandler = (e: MouseEvent, index: number) => {
-    if (disabled) return;
-    const { width, x } = e.currentTarget.getBoundingClientRect();
-    const percent = ((e.clientX - x) / width) * 100;
-    const ceil = (index - 1) * 10;
-    onChange(ceil + Math.ceil(percent / 10));
-  };
+    if (disabled) return
+    const { width, x } = e.currentTarget.getBoundingClientRect()
+    const percent = ((e.clientX - x) / width) * 100
+    const ceil = (index - 1) * 10
+    onChange(ceil + Math.ceil(percent / 10))
+  }
 
   return (
     <div className={cls.wrapper}>
@@ -67,8 +66,7 @@ export const Percent: FC<ICustomRangePercentProps> = (props) => {
               [cls.defaultCursor]: disabled,
             })}
             draggable={false}
-            onClick={(e) => clickHandler(e, item)}
-          >
+            onClick={(e) => clickHandler(e, item)}>
             <div
               className={cls.greenValue}
               style={{ width: `${getLeftPercentValue(item, value)}%` }}
@@ -91,5 +89,5 @@ export const Percent: FC<ICustomRangePercentProps> = (props) => {
         disabled={disabled}
       />
     </div>
-  );
-};
+  )
+}

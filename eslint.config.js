@@ -24,6 +24,7 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       'react-hooks/exhaustive-deps': 'off',
+      'prefer-spread': 'off',
     },
   }
 )
