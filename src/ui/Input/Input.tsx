@@ -8,8 +8,6 @@ import CopyIcon from '../icons/CopyIcon'
 import { Text, TextVariants } from '../Text/Text'
 import Close from '../icons/Close'
 
-export type InputTypes = 'text' | 'password'
-
 type Props = {
   label?: string
   value: string
@@ -19,7 +17,6 @@ type Props = {
   canClear?: boolean
   className?: string
   limit?: number
-  type?: InputTypes
   errorText?: string | null
   canCopy?: boolean
   placeholder?: string
@@ -43,7 +40,6 @@ export const Input: React.FC<Props> = memo(
     autoFocus = false,
     value,
     errorText,
-    type = 'text',
     canCopy = false,
     placeholder = '',
     iconSearch = false,
@@ -110,7 +106,6 @@ export const Input: React.FC<Props> = memo(
               )
             }}
             onBlur={handleBlur}
-            type={type}
             placeholder={placeholder}
             disabled={disabled}
           />

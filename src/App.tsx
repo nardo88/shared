@@ -1,25 +1,18 @@
 import { useState } from 'react'
 import cls from './App.module.scss'
 import { classNames } from './helpers/classNames'
-import { Input } from './ui/Input/Input'
+import { InputRange, type InputRangeValue } from './ui/InputRange/InputRange'
 
 export function App() {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState<InputRangeValue>({ from: 0, to: 0 })
 
   return (
     <div className={classNames(cls.app, {}, ['container'])}>
-      <Input
+      <InputRange
         label="Some label"
         onChange={setValue}
         value={value}
-        autoFocus
-        canClear
-        iconSearch
-        limit={10}
-        onClear={() => console.log('clear')}
-        onBlur={() => console.log('blur')}
-        placeholder="placeholder"
-        type="text"
+        required
       />
     </div>
   )

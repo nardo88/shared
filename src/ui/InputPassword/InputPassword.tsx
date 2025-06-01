@@ -1,23 +1,22 @@
-import React, { type ChangeEvent, memo, useRef, useState } from "react";
+import React, { type ChangeEvent, memo, useRef, useState } from 'react'
 
-import CloseEye from "../icons/CloseEye";
-import OpenEye from "../icons/OpenEye";
+import CloseEye from '../icons/CloseEye'
+import OpenEye from '../icons/OpenEye'
 
-import cls from "./InputPassword.module.scss";
-import { classNames } from "../../helpers/classNames";
-import { Text, TextVariants } from "../Text/Text";
+import cls from './InputPassword.module.scss'
+import { classNames } from '../../helpers/classNames'
+import { Text, TextVariants } from '../Text/Text'
 
 type Props = {
-  label?: string;
-  value: string;
-  canView?: boolean;
-  disabled?: boolean;
-  required?: boolean;
-  className?: string;
-  errorText?: string;
-  errorClassName?: string;
-  onChange: (value: string, event?: ChangeEvent<HTMLInputElement>) => void;
-};
+  label?: string
+  value: string
+  canView?: boolean
+  disabled?: boolean
+  required?: boolean
+  className?: string
+  errorText?: string
+  onChange: (value: string, event?: ChangeEvent<HTMLInputElement>) => void
+}
 
 export const InputPassword: React.FC<Props> = memo(
   (props) => {
@@ -26,15 +25,14 @@ export const InputPassword: React.FC<Props> = memo(
       onChange,
       disabled,
       className,
-      value = "",
+      value = '',
       canView = true,
       errorText,
-      errorClassName,
       required = false,
-    } = props;
+    } = props
 
-    const [display, setDisplay] = useState(false);
-    const ref = useRef<HTMLInputElement>(null);
+    const [display, setDisplay] = useState(false)
+    const ref = useRef<HTMLInputElement>(null)
 
     return (
       <div
@@ -43,13 +41,12 @@ export const InputPassword: React.FC<Props> = memo(
           { [cls.error]: errorText && errorText?.length > 0 },
           [className]
         )}
-        onClick={() => ref.current?.focus()}
-      >
+        onClick={() => ref.current?.focus()}>
         <div>
           {label && (
             <label className={cls.label}>
               {label}
-              {required ? " *" : ""}
+              {required ? ' *' : ''}
             </label>
           )}
           <div className={cls.inputWrapper}>
@@ -58,10 +55,10 @@ export const InputPassword: React.FC<Props> = memo(
               ref={ref}
               value={value}
               onChange={(e) => {
-                e.preventDefault();
-                onChange(e.target.value, e);
+                e.preventDefault()
+                onChange(e.target.value, e)
               }}
-              type={display ? "text" : "password"}
+              type={display ? 'text' : 'password'}
               disabled={disabled}
             />
             {canView && (
@@ -72,18 +69,15 @@ export const InputPassword: React.FC<Props> = memo(
           </div>
         </div>
         {errorText && (
-          <Text
-            className={classNames(cls.errorText, {}, [errorClassName])}
-            variant={TextVariants.ERROR}
-          >
-            {errorText || ""}
+          <Text className={cls.errorText} variant={TextVariants.ERROR}>
+            {errorText || ''}
           </Text>
         )}
       </div>
-    );
+    )
   },
   (prev, next) =>
     prev.value === next.value &&
     prev.errorText === next.errorText &&
     prev.onChange === next.onChange
-);
+)
