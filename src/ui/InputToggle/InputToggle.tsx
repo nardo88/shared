@@ -1,18 +1,16 @@
-import { classNames } from "../../helpers/classNames";
-import cls from "./InputToggle.module.scss";
+import { classNames } from '../../helpers/classNames'
+import cls from './InputToggle.module.scss'
 
 interface InputToggleProps {
-  label: string;
-  sublabel?: string;
-  value: boolean;
-  onChange: (v: boolean) => void;
-  disabled?: boolean;
-  className?: string;
+  label: string
+  value: boolean
+  onChange: (v: boolean) => void
+  disabled?: boolean
+  className?: string
 }
 
 export const InputToggle = ({
   label,
-  sublabel,
   value,
   onChange,
   disabled = false,
@@ -31,12 +29,10 @@ export const InputToggle = ({
         </label>
         <label
           className={cls.label}
-          onClick={() => (!disabled ? onChange(!value) : null)}
-        >
+          onClick={() => (!disabled ? onChange(!value) : null)}>
           {label}
         </label>
       </div>
-      {sublabel && <label className={cls.sublabel}>{sublabel}</label>}
     </div>
-  );
-};
+  )
+}

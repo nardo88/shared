@@ -11,7 +11,7 @@ import { classNames } from '../../helpers/classNames'
 export type ButtonVariants = 'primary' | 'secondary' | 'tertiary' | 'icon'
 
 type Props = {
-  onClick?: (e: MouseEvent) => void
+  onClick: (e: MouseEvent) => void
   className?: string
   variant?: ButtonVariants
   type?: 'button' | 'submit'

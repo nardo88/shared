@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 type PortalProps = {
@@ -10,24 +10,17 @@ type PortalProps = {
 const DEFAULT_Z_INDEX = 1000
 let portalAmount = DEFAULT_Z_INDEX
 
-const getWrapper = () => {
-  const w = document.getElementById('portal-wrapper')
-  if (w) return w
-
-  const wrapper = document.createElement('div')
-  wrapper.setAttribute('id', 'portal-wrapper')
-  return wrapper
-}
-
 const Portal: React.FC<PortalProps> = (props) => {
   const { children, isFixedBody = true } = props
 
-  const container = useRef(getWrapper())
+  const [container, setContainer] = useState<HTMLElement | null>(
+    document.getElementById('portal-root')
+  )
 
   useLayoutEffect(() => {
     portalAmount += 10
-    if (container.current.lastElementChild) {
-      const lastElementChild = container.current.lastElementChild as HTMLElement
+    if (container?.lastElementChild) {
+      const lastElementChild = container.lastElementChild as HTMLElement
       lastElementChild.style.zIndex = String(portalAmount)
     }
     return (): void => {
@@ -41,18 +34,20 @@ const Portal: React.FC<PortalProps> = (props) => {
         })
       }
     }
-  }, [container])
+  }, [])
 
   useLayoutEffect(() => {
-    document.body.appendChild(container.current)
-
-    return () => {
-      if (document.body.contains(container.current))
-        document.body.removeChild(container.current)
+    if (!container) {
+      const cont = document.createElement('div')
+      cont.id = 'portal-root'
+      setContainer(cont)
+      document.body.appendChild(cont)
     }
   }, [])
 
-  return createPortal(children, container.current)
+  if (!container) return null
+
+  return createPortal(children, container as HTMLElement)
 }
 
 export default Portal

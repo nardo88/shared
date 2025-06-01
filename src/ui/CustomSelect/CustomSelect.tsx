@@ -29,7 +29,7 @@ type PropsType = {
   errorText?: string
   className?: string
   disabled?: boolean
-  wrapper?: RefObject<HTMLDivElement> | null
+  wrapper?: RefObject<HTMLDivElement | null>
   onClear?: () => void
   required?: boolean
 }
@@ -38,7 +38,7 @@ interface IDropListProps {
   options: OptionType[]
   setIsOpen: Dispatch<SetStateAction<boolean>>
   container: RefObject<HTMLDivElement | null>
-  wrapper?: RefObject<HTMLDivElement> | null
+  wrapper?: RefObject<HTMLDivElement | null>
   onChange: (val: OptionType) => void
   position: IPosition
 }
@@ -78,7 +78,10 @@ const DropList: FC<IDropListProps> = (props) => {
   }, [])
   return (
     <Portal>
-      <div className={cls.dropDown} style={position}>
+      <div
+        className={cls.dropDown}
+        style={position}
+        onClick={(e) => e.stopPropagation()}>
         <ul>
           {options.map((item) => (
             <li

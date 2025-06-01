@@ -2,6 +2,7 @@ import {
   type Dispatch,
   type FC,
   type MouseEvent,
+  type RefObject,
   type SetStateAction,
   useEffect,
   useRef,
@@ -17,8 +18,8 @@ import ArrowBottom from '../icons/ArrowBottom'
 import Portal from '../Portal'
 
 export type OptionType = {
-  value: string
-  label: string
+  id: string
+  title: string
   disabled?: boolean
 }
 
@@ -33,6 +34,7 @@ interface CheckboxSelectorProps {
   errorText?: string
   canClear?: boolean
   required?: boolean
+  wrapper?: RefObject<HTMLDivElement | null>
 }
 
 interface DropdownList {
@@ -42,6 +44,7 @@ interface DropdownList {
   onChange: (value: string) => void
   disabled?: boolean
   position: IPosition
+  wrapper?: RefObject<HTMLDivElement | null>
 }
 
 interface IPosition {
@@ -51,10 +54,11 @@ interface IPosition {
 }
 
 const DropdownList: FC<DropdownList> = (props) => {
-  const { setIsOpen, options, value, onChange, disabled, position } = props
+  const { setIsOpen, options, value, onChange, disabled, position, wrapper } =
+    props
   const ref = useRef<HTMLDivElement>(null)
 
-  const clickedByNotMenu = (e: globalThis.MouseEvent) => {
+  const hideList = (e: globalThis.MouseEvent) => {
     if (ref.current && !ref.current.contains(e.target as Node)) {
       setIsOpen(false)
     }
@@ -62,24 +66,31 @@ const DropdownList: FC<DropdownList> = (props) => {
 
   useEffect(() => {
     const hide = () => setIsOpen(false)
-    window.addEventListener('click', clickedByNotMenu)
+    window.addEventListener('click', hideList)
     window.addEventListener('resize', hide)
+    if (wrapper?.current) wrapper?.current.addEventListener('click', hideList)
 
     return () => {
-      window.removeEventListener('click', clickedByNotMenu)
+      window.removeEventListener('click', hideList)
       window.removeEventListener('resize', hide)
+      if (wrapper?.current)
+        wrapper?.current.removeEventListener('click', hideList)
     }
   }, [])
 
   return (
     <Portal>
-      <div ref={ref} className={cls.listWrapper} style={position}>
+      <div
+        ref={ref}
+        className={cls.listWrapper}
+        style={position}
+        onClick={(e) => e.stopPropagation()}>
         {options.map((item) => (
           <Checkbox
-            key={item.value}
-            label={item.label}
-            checked={!!value?.includes(item.value)}
-            onChange={() => onChange(item.value)}
+            key={item.id}
+            label={item.title}
+            checked={!!value?.includes(item.id)}
+            onChange={() => onChange(item.id)}
             disabled={item.disabled || disabled}
             className={cls.checkbox}
           />
@@ -101,39 +112,42 @@ export const CheckboxSelector = (props: CheckboxSelectorProps) => {
     errorText,
     canClear = false,
     required = false,
+    wrapper,
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
+  console.log('isOpen: ', isOpen)
   const [position, setPosition] = useState<IPosition>({
     left: 0,
     top: 0,
     width: 0,
   })
 
-  const wrapper = useRef<HTMLDivElement>(null)
+  const container = useRef<HTMLDivElement>(null)
 
   const clickHandler = (e: MouseEvent) => {
-    if (!wrapper.current) return
+    if (!container.current) return
     e.stopPropagation()
-    const { x, y, height, width } = wrapper.current.getBoundingClientRect()
+    const { x, y, height, width } = container.current.getBoundingClientRect()
     setPosition({ width, left: x, top: y + height + 5 })
     setIsOpen((o) => !o)
   }
 
   return (
     <div
-      ref={wrapper}
+      ref={container}
       className={classNames(
         cls.CheckboxSelector,
         { [cls.error]: errorText && errorText?.length > 0 },
         [className]
-      )}>
+      )}
+      onClick={clickHandler}>
       {label && (
         <label className={classNames(cls.label, { [cls.required]: required })}>
           {label}
         </label>
       )}
-      <div className={cls.inputArea} onClick={clickHandler}>
+      <div className={cls.inputArea}>
         {showValues && (
           <div className={cls.valuesList}>
             {!!value?.length &&
@@ -147,7 +161,7 @@ export const CheckboxSelector = (props: CheckboxSelectorProps) => {
                       onChange(item)
                     }
                   }}>
-                  {options.find((i) => i.value === item)?.label}
+                  {options.find((i) => i.id === item)?.title}
                 </div>
               ))}
           </div>
@@ -164,6 +178,7 @@ export const CheckboxSelector = (props: CheckboxSelectorProps) => {
           value={value}
           disabled={disabled}
           position={position}
+          wrapper={wrapper}
         />
       )}
       {errorText && (

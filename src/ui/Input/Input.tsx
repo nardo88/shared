@@ -46,7 +46,6 @@ export const Input: React.FC<Props> = memo(
   }) => {
     const ref = useRef<HTMLInputElement | null>(null)
     const [copy, setCopy] = useState(false)
-    console.log('copy: ', copy)
 
     const handleBlur = () => {
       if (typeof onBlur === 'function') onBlur()

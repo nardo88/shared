@@ -26,10 +26,10 @@
   text-align: center;
   cursor: pointer;
   border: none;
-
-  &:hover {
-    border-radius: 50px;
-  }
+  border: 1px solid var(--additional-success);
+  color: var(--additional-success);
+  background: transparent;
+  border-radius: 4px;
 }
 
 .dotItem {
@@ -42,15 +42,13 @@
   color: var(--content-900);
   text-align: center;
   cursor: default;
-  background-color: transparent;
+  background: transparent;
   border: none;
 }
 
 .current {
-  width: 24px;
-  height: 24px;
-  padding: 4px 5px;
-  border-radius: 50%;
+  background: var(--additional-success);
+  color: var(--base-100);
 }
 
 .prev {
