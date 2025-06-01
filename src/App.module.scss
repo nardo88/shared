@@ -14,3 +14,34 @@
     padding: 30px;
   }
 }
+
+.list {
+  display: grid;
+  max-width: 600px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 0;
+  border: 1px solid var(--base-400);
+  border-radius: 4px;
+  position: relative;
+}
+
+.row {
+  width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid var(--base-400);
+  min-width: 100%;
+}
+
+.id {
+  width: 350px;
+}
+.title {
+  width: 400px;
+}
+
+.settings {
+  position: sticky;
+  right: 0;
+}

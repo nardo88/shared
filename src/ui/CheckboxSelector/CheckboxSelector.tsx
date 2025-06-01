@@ -116,7 +116,6 @@ export const CheckboxSelector = (props: CheckboxSelectorProps) => {
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
-  console.log('isOpen: ', isOpen)
   const [position, setPosition] = useState<IPosition>({
     left: 0,
     top: 0,

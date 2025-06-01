@@ -1,35 +1,32 @@
 @import '../../index.scss';
 
 .SettingsMenu {
-  position: relative;
+  width: fit-content;
 }
 
 .settingsBar {
   cursor: pointer;
+
+  svg {
+    stroke: var(--content-800);
+    path {
+      fill: var(--content-800);
+    }
+  }
 }
 
 .settings {
   position: absolute;
-  top: 100%;
-  right: 0;
-  z-index: var(--z-index-4);
   display: flex;
   flex-direction: column;
   gap: 8px;
-  height: 0;
   max-height: 250px;
   padding: 8px 4px;
   overflow-y: auto;
-  visibility: hidden;
   background-color: var(--base-100);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  opacity: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
   @include scroll;
-
-  @media (max-width: 768px) {
-    right: -112px;
-  }
 }
 
 .menuItem {
@@ -40,15 +37,16 @@
   padding: 4px 8px;
   color: var(--content-900);
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 6px;
 
   &:hover {
     background-color: var(--base-300);
   }
 
   & > p {
-    font-size: 16px;
+    font-size: 14px;
     text-align: left;
+    line-height: 125%;
   }
 }
 
