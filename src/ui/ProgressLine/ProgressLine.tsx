@@ -1,12 +1,12 @@
-import { type FC } from "react";
+import { type FC } from 'react'
 
-import { classNames } from "../../helpers/classNames";
+import { classNames } from '../../helpers/classNames'
 
-import cls from "./ProgressLine.module.scss";
+import cls from './ProgressLine.module.scss'
 
 interface ProgressLineProps {
-  className?: string;
-  percents: number;
+  className?: string
+  percents: number
 }
 
 export const ProgressLine: FC<ProgressLineProps> = ({
@@ -17,8 +17,8 @@ export const ProgressLine: FC<ProgressLineProps> = ({
     <div className={classNames(cls.progressWrapper, {}, [className])}>
       <div
         className={cls.progressValue}
-        style={{ width: `${percents}%`, transition: "width 0.5s ease-in-out" }}
+        style={{ width: `${percents}%`, transition: 'width 0.5s ease-in-out' }}
       />
     </div>
-  );
-};
+  )
+}
