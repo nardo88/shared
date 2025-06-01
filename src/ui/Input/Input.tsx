@@ -1,125 +1,88 @@
-import React, {
-  type ChangeEvent,
-  type KeyboardEvent,
-  type MouseEvent,
-  memo,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { memo, useEffect, useRef, useState } from 'react'
 
-import SearchIcon from "../icons/SearchIcon";
+import SearchIcon from '../icons/SearchIcon'
 
-import cls from "./Input.module.scss";
-import { classNames } from "../../helpers/classNames";
-import CopyIcon from "../icons/CopyIcon";
-import CalendarIcon from "../icons/CalendarIcon";
-import { Text, TextVariants } from "../Text/Text";
+import cls from './Input.module.scss'
+import { classNames } from '../../helpers/classNames'
+import CopyIcon from '../icons/CopyIcon'
+import { Text, TextVariants } from '../Text/Text'
+import Close from '../icons/Close'
 
-export enum InputTypes {
-  TEXT = "text",
-  PASSWORD = "password",
-  NUMBER = "number",
-}
+export type InputTypes = 'text' | 'password'
 
 type Props = {
-  label?: string;
-  sublabel?: string;
-  value: string;
-  autoFocus?: boolean;
-  required?: boolean;
-  disabled?: boolean;
-  canClear?: boolean;
-  className?: string;
-  name?: string;
-  limit?: number;
-  type?: InputTypes;
-  errorText?: string | null;
-  errorClassName?: string;
-  canCopy?: boolean;
-  onClear?: () => void;
-  onChange?: (value: string, event?: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: () => void;
-  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
-  onClick?: (event: MouseEvent<HTMLInputElement>) => void;
-  onContextMenu?: (event: MouseEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  iconSearch?: boolean;
-  getRef?: (ref: HTMLInputElement) => void;
-};
+  label?: string
+  value: string
+  autoFocus?: boolean
+  required?: boolean
+  disabled?: boolean
+  canClear?: boolean
+  className?: string
+  limit?: number
+  type?: InputTypes
+  errorText?: string | null
+  canCopy?: boolean
+  placeholder?: string
+  iconSearch?: boolean
+  onClear?: () => void
+  onChange?: (value: string) => void
+  onBlur?: () => void
+}
 
 export const Input: React.FC<Props> = memo(
   ({
     label,
-    sublabel,
     onChange,
     onClear,
     onBlur,
-    onKeyDown,
-    onContextMenu,
-    onClick,
     disabled,
     limit,
     required = false,
     canClear = false,
     className,
     autoFocus = false,
-    value = "",
+    value,
     errorText,
-    errorClassName,
-    type = InputTypes.TEXT,
+    type = 'text',
     canCopy = false,
-    placeholder = "",
+    placeholder = '',
     iconSearch = false,
-    getRef,
   }) => {
-    const ref = useRef<HTMLInputElement | null>(null);
-    const [copy, setCopy] = useState(false);
+    const ref = useRef<HTMLInputElement | null>(null)
+    const [copy, setCopy] = useState(false)
+    console.log('copy: ', copy)
 
     const handleBlur = () => {
-      if (typeof onBlur === "function") onBlur();
-    };
+      if (typeof onBlur === 'function') onBlur()
+    }
 
     const handleClear = () => {
-      onChange?.("");
-      if (typeof onClear === "function") onClear();
-    };
-
-    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-      if (typeof onKeyDown === "function") onKeyDown(e);
-    };
-
-    const onClickHandler = (e: MouseEvent<HTMLInputElement>) => {
-      if (typeof onClick === "function") onClick(e);
-    };
-    const onContextMenuHandler = (e: MouseEvent<HTMLInputElement>) => {
-      if (typeof onContextMenu === "function") onContextMenu(e);
-    };
+      onChange?.('')
+      if (typeof onClear === 'function') onClear()
+    }
 
     const copyText = (text: string) => {
-      setCopy(true);
-      navigator.clipboard.writeText(text);
-      setTimeout(() => setCopy(false), 2000);
-    };
+      setCopy(true)
+      navigator.clipboard.writeText(text)
+      setTimeout(() => setCopy(false), 2000)
+    }
 
     useEffect(() => {
-      if (autoFocus) ref.current?.focus();
-    }, []);
+      if (autoFocus) ref.current?.focus()
+    }, [])
 
     return (
       <div
         className={classNames(cls.wrapper, {}, [className])}
-        onClick={() => ref.current?.focus()}
-      >
+        onClick={() => ref.current?.focus()}>
         <div
           className={classNames(cls.top, {
             [cls.error]: errorText && errorText?.length > 0,
-          })}
-        >
+          })}>
           {label && (
             <label className={cls.label}>
               {label}
-              {required ? " *" : ""}
+              {required ? ' *' : ''}
             </label>
           )}
           {limit && (
@@ -131,8 +94,7 @@ export const Input: React.FC<Props> = memo(
         <div
           className={classNames(cls.inputWrapper, {
             [cls.error]: errorText && errorText?.length > 0,
-          })}
-        >
+          })}>
           {iconSearch ? <SearchIcon className={cls.searchIcon} /> : null}
           <input
             className={classNames(cls.input, {
@@ -140,55 +102,39 @@ export const Input: React.FC<Props> = memo(
               [cls.withIcon]: iconSearch,
               [cls.disabled]: disabled,
             })}
-            ref={(r) => {
-              if (!r) return;
-              ref.current = r;
-              if (getRef) getRef(r);
-            }}
+            ref={ref}
             value={value}
             onChange={(e) => {
-              e.preventDefault();
               onChange?.(
-                limit ? e.target.value.slice(0, limit) : e.target.value,
-                e
-              );
+                limit ? e.target.value.slice(0, limit) : e.target.value
+              )
             }}
             onBlur={handleBlur}
-            onKeyDown={handleKeyDown}
             type={type}
             placeholder={placeholder}
             disabled={disabled}
-            onClick={onClickHandler}
-            onContextMenu={onContextMenuHandler}
           />
           {!!value &&
             (canCopy ? (
               <CopyIcon
-                className={cls.icon}
+                className={classNames(cls.icon, { [cls.copied]: copy })}
                 viewBox="0 0 18 18"
-                stroke={
-                  copy ? "var(--additional-success)" : "var(--content-800)"
-                }
                 onClick={() => (canCopy ? copyText(value) : null)}
               />
             ) : !disabled && canClear ? (
-              <CalendarIcon onClick={handleClear} className={cls.icon} />
+              <Close size={18} onClick={handleClear} className={cls.icon} />
             ) : null)}
-          {sublabel && <label className={cls.sublabel}>{sublabel}</label>}
         </div>
         {errorText && (
-          <Text
-            className={classNames(cls.errorText, {}, [errorClassName])}
-            variant={TextVariants.ERROR}
-          >
-            {errorText || ""}
+          <Text className={cls.errorText} variant={TextVariants.ERROR}>
+            {errorText || ''}
           </Text>
         )}
       </div>
-    );
+    )
   },
   (prev, next) =>
     prev.value === next.value &&
     prev.errorText === next.errorText &&
     prev.onChange === next.onChange
-);
+)

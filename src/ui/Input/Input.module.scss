@@ -19,12 +19,6 @@
   line-height: 20px;
 }
 
-.sublabel {
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--content-800);
-}
-
 .limit {
   font-size: 13px;
   line-height: 16px;
@@ -39,6 +33,7 @@
   background-color: var(--base-100);
   border: 1px solid var(--base-400);
   border-radius: 8px;
+  outline: none;
 }
 
 .haveCross {
@@ -51,6 +46,16 @@
   right: 5px;
   cursor: pointer;
   transform: translateY(-50%);
+
+  path {
+    stroke: var(--content-800);
+  }
+}
+
+.copied {
+  path {
+    stroke: var(--additional-success);
+  }
 }
 
 .errorText {
