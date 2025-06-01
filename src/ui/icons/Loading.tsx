@@ -1,23 +1,22 @@
-import React from "react";
+import React from 'react'
 
-import { type IconProps } from "./IconComponent";
+import { type IconProps } from './IconComponent'
 
 const Loading: React.FC<IconProps> = (props): React.ReactNode => (
   <svg
     version="1.0"
-    width={props?.size || "64px"}
-    height={props?.size || "64px"}
+    width={props?.size || '64px'}
+    height={props?.size || '64px'}
     viewBox="0 0 128 128"
-    {...props}
-  >
+    {...props}>
     <g>
       <linearGradient id="linear-gradient">
-        <stop offset="0%" stopColor="#d8ba7c" />
-        <stop offset="100%" stopColor="#e9d9b6" />
+        <stop offset="0%" stopColor="var(--additional-success)" />
+        <stop offset="100%" stopColor="var(--base-100)" />
       </linearGradient>
       <linearGradient id="linear-gradient2">
-        <stop offset="0%" stopColor="#d8ba7c" />
-        <stop offset="100%" stopColor="#f8f2e6" />
+        <stop offset="0%" stopColor="var(--additional-success)" />
+        <stop offset="100%" stopColor="var(--base-100)" />
       </linearGradient>
       <path
         d="M64 .98A63.02 63.02 0 1 1 .98 64 63.02 63.02 0 0 1 64 .98zm0 15.76A47.26 47.26 0 1 1 16.74 64 47.26 47.26 0 0 1 64 16.74z"
@@ -39,6 +38,6 @@ const Loading: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </g>
   </svg>
-);
+)
 
-export default Loading;
+export default Loading
