@@ -1,12 +1,17 @@
-.wrapper {
-  position: relative;
-}
+@import '../../index.scss';
 
 .label {
   display: block;
   margin-bottom: 4px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 125%;
+  user-select: none;
+}
+
+.required {
+  &:after {
+    content: ' *';
+  }
 }
 
 .input {
@@ -22,18 +27,8 @@
   border-radius: 8px;
 }
 
-.noValue {
-  height: 38px;
-}
-
 .dropDown {
   position: absolute;
-  top: 105%;
-  right: 0;
-  left: 0;
-  z-index: var(--z-index-4);
-  width: fit-content;
-  min-width: 100%;
   max-height: 250px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -41,21 +36,9 @@
   line-height: 20px;
   background-color: var(--base-100);
   border-radius: 4px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
 
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar {
-    width: 5px;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--content-700);
-    border-radius: 10px;
-  }
+  @include scroll;
 }
 
 .selectOption {
@@ -73,9 +56,8 @@
 }
 
 .errorText {
-  height: 12px;
   font-size: 12px;
-  line-height: 140%;
+  line-height: 125%;
 }
 
 div.error {
