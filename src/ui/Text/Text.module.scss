@@ -1,9 +1,45 @@
+.h1 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 130%;
+  color: var(--content-900);
+}
+
+.h2 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 130%;
+  color: var(--content-900);
+}
+.h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+  color: var(--content-900);
+}
+.h4 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+  color: var(--content-900);
+}
+.h5 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 130%;
+  color: var(--content-900);
+}
+
+.text {
+  font-size: 14px;
+  line-height: 130%;
+  color: var(--content-900);
+}
+
 .helper {
   font-size: 14px;
   line-height: 125%;
   color: var(--content-800);
-  letter-spacing: 0em;
-  white-space: pre-wrap;
 }
 
 .error {
@@ -18,89 +54,8 @@
   color: var(--additional-success);
 }
 
-// -------------------------------------------------
-
-.xl2 {
-  font-size: 125%;
-  font-weight: 600;
+.small {
+  font-size: 11px;
   line-height: 130%;
-  color: var(--content-900);
-}
-
-.xl1 {
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 130%;
-  color: var(--content-900);
-}
-
-.xl {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 130%;
-  color: var(--content-900);
-}
-
-.base_light {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 125%;
-  color: var(--content-900);
-}
-
-.s_light {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 125%;
-  color: var(--content-800);
-}
-
-.light {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 125%;
-  color: var(--content-900);
-}
-
-.base {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 125%;
-  color: var(--content-900);
-}
-
-.base_14 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 125%;
-  color: var(--content-900);
-}
-
-.base_22 {
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 130%;
-  color: var(--content-900);
-}
-
-.base_25 {
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%;
-  color: var(--content-900);
-}
-
-.base_12 {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 125%;
-  color: var(--content-800);
-}
-
-.light_13 {
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 125%;
   color: var(--content-800);
 }

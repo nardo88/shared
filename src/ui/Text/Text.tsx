@@ -2,213 +2,140 @@ import React, {
   type CSSProperties,
   type MouseEvent,
   type ReactNode,
-} from "react";
+} from 'react'
 
-import cls from "./Text.module.scss";
-import { classNames } from "../../helpers/classNames";
+import cls from './Text.module.scss'
+import { classNames } from '../../helpers/classNames'
 
-export enum TextVariants {
-  ERROR = "error",
-  SUCCESS = "success",
-  HELPER = "helper",
-
-  XL2 = "xl2",
-  XL1 = "xl1",
-  XL = "xl",
-  BASE_LIGHT = "base_light",
-  S_LIGHT = "s_light",
-  LIGHT = "light",
-  BASE = "base",
-  BASE_22 = "base_22",
-  BASE_12 = "base_12",
-  BASE_14 = "base_14",
-  BASE_25 = "base_25",
-  LIGHT_13 = "light_13",
-}
+export type TextVariants =
+  | 'error'
+  | 'success'
+  | 'helper'
+  | 'text'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'small'
 
 type Props = {
-  className?: string;
-  variant?: TextVariants;
-  title?: string;
-  style?: CSSProperties;
-  children?: ReactNode;
-  onClick?: (e: MouseEvent) => void;
-};
+  className?: string
+  variant?: TextVariants
+  title?: string
+  style?: CSSProperties
+  children?: ReactNode
+  onClick?: (e: MouseEvent) => void
+}
 
 export const Text: React.FC<Props> = ({
   children,
   className,
-  variant = TextVariants.BASE,
-  title = "",
+  variant = 'text',
+  title = '',
   style,
   onClick,
 }) => {
   return (
     <>
-      {variant === TextVariants.ERROR && (
+      {variant === 'error' && (
         <p
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.error, {}, [className])}
-          style={style}
-        >
+          style={style}>
           {children}
         </p>
       )}
 
-      {variant === TextVariants.HELPER && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.helper, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.SUCCESS && (
+      {variant === 'success' && (
         <p
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.success, {}, [className])}
-          style={style}
-        >
+          style={style}>
           {children}
         </p>
       )}
 
-      {variant === TextVariants.XL2 && (
-        <h2
+      {variant === 'helper' && (
+        <p
           title={title}
           onClick={(e) => onClick?.(e)}
-          className={classNames(cls.xl2, {}, [className])}
-          style={style}
-        >
+          className={classNames(cls.helper, {}, [className])}
+          style={style}>
           {children}
-        </h2>
+        </p>
       )}
 
-      {variant === TextVariants.XL1 && (
+      {variant === 'text' && (
+        <p
+          title={title}
+          onClick={(e) => onClick?.(e)}
+          className={classNames(cls.text, {}, [className])}
+          style={style}>
+          {children}
+        </p>
+      )}
+
+      {variant === 'h1' && (
         <h1
           title={title}
           onClick={(e) => onClick?.(e)}
-          className={classNames(cls.xl1, {}, [className])}
-          style={style}
-        >
+          className={classNames(cls.h1, {}, [className])}
+          style={style}>
           {children}
         </h1>
       )}
 
-      {variant === TextVariants.XL && (
+      {variant === 'h2' && (
+        <h2
+          title={title}
+          onClick={(e) => onClick?.(e)}
+          className={classNames(cls.h2, {}, [className])}
+          style={style}>
+          {children}
+        </h2>
+      )}
+      {variant === 'h3' && (
+        <h3
+          title={title}
+          onClick={(e) => onClick?.(e)}
+          className={classNames(cls.h3, {}, [className])}
+          style={style}>
+          {children}
+        </h3>
+      )}
+
+      {variant === 'h4' && (
         <h4
           title={title}
           onClick={(e) => onClick?.(e)}
-          className={classNames(cls.xl, {}, [className])}
-          style={style}
-        >
+          className={classNames(cls.h4, {}, [className])}
+          style={style}>
           {children}
         </h4>
       )}
 
-      {variant === TextVariants.BASE_LIGHT && (
-        <p
+      {variant === 'h5' && (
+        <h5
           title={title}
           onClick={(e) => onClick?.(e)}
-          className={classNames(cls.base_light, {}, [className])}
-          style={style}
-        >
+          className={classNames(cls.h5, {}, [className])}
+          style={style}>
           {children}
-        </p>
+        </h5>
       )}
 
-      {variant === TextVariants.S_LIGHT && (
+      {variant === 'small' && (
         <p
           title={title}
           onClick={(e) => onClick?.(e)}
-          className={classNames(cls.s_light, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.LIGHT && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.light, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.BASE && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.base, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.BASE_25 && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.base_25, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.BASE_22 && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.base_22, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.BASE_12 && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.base_12, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.BASE_14 && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.base_14, {}, [className])}
-          style={style}
-        >
-          {children}
-        </p>
-      )}
-
-      {variant === TextVariants.LIGHT_13 && (
-        <p
-          title={title}
-          onClick={(e) => onClick?.(e)}
-          className={classNames(cls.light_13, {}, [className])}
-          style={style}
-        >
+          className={classNames(cls.small, {}, [className])}
+          style={style}>
           {children}
         </p>
       )}
     </>
-  );
-};
+  )
+}
