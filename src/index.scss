@@ -9,6 +9,8 @@
   --base-300: #e8eaee;
   --base-200: #f2f2f4;
   --base-100: #ffffff;
+
+  --shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 @mixin scroll($color: var(--content-700), $width: 5px, $height: 8px) {
@@ -48,6 +50,10 @@ button {
 }
 
 .container {
-  max-width: 1250px;
+  max-width: 1180px;
   margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    padding: 0 20px;
+  }
 }

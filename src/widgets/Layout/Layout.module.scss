@@ -1,0 +1,32 @@
+.Layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.header {
+  padding: 15px 0;
+  background-color: var(--base-100);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.container {
+  padding: 20px 0;
+  flex-grow: 1;
+  height: 100%;
+}
