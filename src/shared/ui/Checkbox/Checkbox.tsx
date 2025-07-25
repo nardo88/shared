@@ -1,9 +1,9 @@
 import { type FC } from 'react'
 
-import { Text, TextVariants } from '../Text/Text'
+import { Text } from '@shared//ui/Text/Text'
+import { classNames } from '@shared/helpers/classNames'
 
 import cls from './Checkbox.module.scss'
-import { classNames } from '../../helpers/classNames'
 
 type IProps = {
   checked: boolean
@@ -28,7 +28,8 @@ export const Checkbox: FC<IProps> = ({
         className={classNames(cls.wrapper, {
           [cls.disabled]: disabled,
           [cls.error]: !!errorText,
-        })}>
+        })}
+      >
         <input
           type="checkbox"
           checked={checked}
@@ -40,9 +41,7 @@ export const Checkbox: FC<IProps> = ({
         {label && <span className={classNames(cls.label)}>{label}</span>}
       </label>
       {errorText && (
-        <Text
-          className={classNames(cls.errorText, {}, [])}
-          variant={TextVariants.ERROR}>
+        <Text className={classNames(cls.errorText, {}, [])} variant="error">
           {errorText}
         </Text>
       )}

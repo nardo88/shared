@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "../IconComponent";
+import IconComponent, { type IconProps } from '../IconComponent'
 
 const ErrorIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} viewBox="0 0 100 100" fill="none" id="m-error-icon">
@@ -17,6 +17,6 @@ const ErrorIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default ErrorIcon;
+export default ErrorIcon

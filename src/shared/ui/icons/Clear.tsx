@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const Clear: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="clear" fill="none">
@@ -12,6 +12,6 @@ const Clear: React.FC<IconProps> = (props): React.ReactNode => (
       fill="#331C20"
     />
   </IconComponent>
-);
+)
 
-export default Clear;
+export default Clear

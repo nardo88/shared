@@ -1,4 +1,5 @@
-import { classNames } from '../../helpers/classNames'
+import { classNames } from '@shared/helpers/classNames'
+
 import cls from './Radiobutton.module.scss'
 
 type Props = {
@@ -31,10 +32,7 @@ export const Radiobutton: React.FC<Props> = ({
         />
         <span className={classNames(cls.span, { [cls.disabled]: disabled })} />
         {label && (
-          <span
-            className={classNames(cls.labelSpan, { [cls.disabled]: disabled })}>
-            {label}
-          </span>
+          <span className={classNames(cls.labelSpan, { [cls.disabled]: disabled })}>{label}</span>
         )}
       </label>
     </div>

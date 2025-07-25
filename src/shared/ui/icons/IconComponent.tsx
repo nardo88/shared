@@ -1,26 +1,27 @@
-import React, { type ReactNode } from "react";
+import React, { type ReactNode } from 'react'
 
-import cls from "./IconComponent.module.scss";
-import { classNames } from "../../helpers/classNames";
+import { classNames } from '@shared/helpers/classNames'
+
+import cls from './IconComponent.module.scss'
 
 export type IconComponentProps = {
-  children?: ReactNode;
-  id?: string;
-  viewBox?: string;
-  fill?: string;
-  stroke?: string;
-  width?: number;
-  height?: number;
-  size?: number;
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: (e: React.MouseEvent) => void;
-  onPointerDown?: (e: React.MouseEvent) => void;
-  pathColor?: string;
-  color?: string;
-};
+  children?: ReactNode
+  id?: string
+  viewBox?: string
+  fill?: string
+  stroke?: string
+  width?: number
+  height?: number
+  size?: number
+  className?: string
+  style?: React.CSSProperties
+  onClick?: (e: React.MouseEvent) => void
+  onPointerDown?: (e: React.MouseEvent) => void
+  pathColor?: string
+  color?: string
+}
 
-export type IconProps = IconComponentProps;
+export type IconProps = IconComponentProps
 
 const IconComponent: React.FC<IconComponentProps> = ({
   className,
@@ -28,11 +29,11 @@ const IconComponent: React.FC<IconComponentProps> = ({
   onClick,
   style,
   size = 24,
-  fill = "currentColor",
-  viewBox = "0 0 24 24",
+  fill = 'currentColor',
+  viewBox = '0 0 24 24',
   height = 24,
   width = 24,
-  color = "",
+  color = '',
 }): React.ReactNode => {
   return (
     <svg
@@ -47,7 +48,7 @@ const IconComponent: React.FC<IconComponentProps> = ({
     >
       {children}
     </svg>
-  );
-};
+  )
+}
 
-export default IconComponent;
+export default IconComponent

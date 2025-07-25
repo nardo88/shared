@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "../IconComponent";
+import IconComponent, { type IconProps } from '../IconComponent'
 
 const ConfirmationIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent
@@ -23,6 +23,6 @@ const ConfirmationIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default ConfirmationIcon;
+export default ConfirmationIcon

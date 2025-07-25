@@ -1,10 +1,11 @@
-import { useRef, type ReactNode, useEffect } from 'react'
-import { Text, TextVariants } from '../Text/Text'
+import { type ReactNode, useEffect, useRef } from 'react'
+
+import { classNames } from '@shared/helpers/classNames'
+import Portal from '@shared/ui/Portal'
+import { Text } from '@shared/ui/Text/Text'
+import CloseIcon from '@shared/ui/icons/CloseIcon'
 
 import cls from './Popup.module.scss'
-import Portal from '../Portal'
-import { classNames } from '../../helpers/classNames'
-import CloseIcon from '../icons/CloseIcon'
 
 type Props = {
   onClose?: () => void
@@ -70,18 +71,12 @@ export const Popup: React.FC<Props> = (props) => {
           overlay.current = r
           getWrapper?.(r)
         }}
-        className={classNames(cls.overlay, { [cls.fadeIn]: needAnimate }, [
-          className,
-        ])}>
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className={cls.popup}
-          style={{ maxWidth }}>
+        className={classNames(cls.overlay, { [cls.fadeIn]: needAnimate }, [className])}
+      >
+        <div onClick={(e) => e.stopPropagation()} className={cls.popup} style={{ maxWidth }}>
           {(title || !!onClose) && (
             <div className={cls.popupHead}>
-              {typeof title === 'string' && (
-                <Text variant={TextVariants.XL2}>{title}</Text>
-              )}
+              {typeof title === 'string' && <Text variant="h2">{title}</Text>}
               {typeof title === 'object' && title}
               {!!onClose && displayClose && (
                 <CloseIcon className={cls.closeBtn} onClick={hideModal} />

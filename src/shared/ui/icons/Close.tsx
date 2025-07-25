@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconComponentProps } from "./IconComponent";
+import IconComponent, { type IconComponentProps } from './IconComponent'
 
 const Close: React.FC<IconComponentProps> = (props): React.ReactNode => {
   return (
@@ -13,7 +13,7 @@ const Close: React.FC<IconComponentProps> = (props): React.ReactNode => {
         strokeLinejoin="round"
       />
     </IconComponent>
-  );
-};
+  )
+}
 
-export default Close;
+export default Close

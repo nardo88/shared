@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from ".././IconComponent";
+import IconComponent, { type IconProps } from '.././IconComponent'
 
 const Info: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="info" fill="none" size={20} viewBox="0 0 20 20">
@@ -18,6 +18,6 @@ const Info: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </g>
   </IconComponent>
-);
+)
 
-export default Info;
+export default Info

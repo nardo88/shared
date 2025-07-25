@@ -1,8 +1,7 @@
 import { type FC } from 'react'
 
-import { classNames } from '../../helpers/classNames'
-
-import { Text, TextVariants } from '../Text/Text'
+import { classNames } from '@shared/helpers/classNames'
+import { Text } from '@shared/ui/Text/Text'
 
 import cls from './InputRange.module.scss'
 
@@ -84,7 +83,7 @@ export const InputRange: FC<InputRangeProps> = (props) => {
         </label>
       </div>
       {errorText && (
-        <Text className={cls.errorText} variant={TextVariants.ERROR}>
+        <Text className={cls.errorText} variant="error">
           {errorText || ''}
         </Text>
       )}

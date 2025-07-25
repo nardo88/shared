@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const CheckIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="check-icon" fill="none" viewBox="0 0 17 16">
@@ -12,6 +12,6 @@ const CheckIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default CheckIcon;
+export default CheckIcon

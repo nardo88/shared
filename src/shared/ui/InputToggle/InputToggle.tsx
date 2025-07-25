@@ -1,4 +1,5 @@
-import { classNames } from '../../helpers/classNames'
+import { classNames } from '@shared/helpers/classNames'
+
 import cls from './InputToggle.module.scss'
 
 interface InputToggleProps {
@@ -27,9 +28,7 @@ export const InputToggle = ({
           />
           <span className={cls.slider} />
         </label>
-        <label
-          className={cls.label}
-          onClick={() => (!disabled ? onChange(!value) : null)}>
+        <label className={cls.label} onClick={() => (!disabled ? onChange(!value) : null)}>
           {label}
         </label>
       </div>

@@ -19,12 +19,12 @@ import {
   useState,
 } from 'react'
 
-import { Text } from '../Text/Text'
+import { classNames } from '@shared/helpers/classNames'
+import Portal from '@shared/ui/Portal'
+import { Text } from '@shared/ui/Text/Text'
+import SettingsIcon from '@shared/ui/icons/SettingsIcon'
 
 import cls from './SettingsMenu.module.scss'
-import { classNames } from '../../helpers/classNames'
-import SettingsIcon from '../icons/SettingsIcon'
-import Portal from '../Portal'
 
 export type OptionItem = {
   title: string
@@ -98,7 +98,8 @@ const DropDown: FC<IDropDownProps> = (props) => {
                     if (item.disabled) return
                     item.onClick(e, id)
                     setIsOpen(null)
-                  }}>
+                  }}
+                >
                   {item.icon && item.icon}
                   <Text>{item.title}</Text>
                 </div>
@@ -111,14 +112,7 @@ const DropDown: FC<IDropDownProps> = (props) => {
 }
 
 export const SettingsMenu = memo(
-  ({
-    options,
-    id,
-    className,
-    menuText,
-    wrapper,
-    getHide,
-  }: SettingsMenuProps) => {
+  ({ options, id, className, menuText, wrapper, getHide }: SettingsMenuProps) => {
     const ref = useRef<HTMLDivElement>(null)
     const optionRef = useRef<HTMLDivElement>(null)
     const [isOpen, setIsOpen] = useState<null | string>(null)
@@ -152,10 +146,7 @@ export const SettingsMenu = memo(
     if (!options.length) return null
 
     return (
-      <div
-        className={classNames(cls.SettingsMenu, {}, [className])}
-        ref={ref}
-        data-id={id}>
+      <div className={classNames(cls.SettingsMenu, {}, [className])} ref={ref} data-id={id}>
         <span className={cls.settingsBar} onClick={openMenu}>
           {menuText || <SettingsIcon />}
         </span>

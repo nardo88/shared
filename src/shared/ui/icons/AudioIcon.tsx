@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 export const AudioIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} fill="none" viewBox="0 0 16 16" size={16}>
@@ -14,4 +14,4 @@ export const AudioIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinecap="round"
     />
   </IconComponent>
-);
+)

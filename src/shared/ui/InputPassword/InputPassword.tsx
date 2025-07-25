@@ -1,11 +1,11 @@
 import React, { type ChangeEvent, memo, useRef, useState } from 'react'
 
-import CloseEye from '../icons/CloseEye'
-import OpenEye from '../icons/OpenEye'
+import { classNames } from '@shared/helpers/classNames'
+import { Text } from '@shared/ui/Text/Text'
+import CloseEye from '@shared/ui/icons/CloseEye'
+import OpenEye from '@shared/ui/icons/OpenEye'
 
 import cls from './InputPassword.module.scss'
-import { classNames } from '../../helpers/classNames'
-import { Text, TextVariants } from '../Text/Text'
 
 type Props = {
   label?: string
@@ -41,7 +41,8 @@ export const InputPassword: React.FC<Props> = memo(
           { [cls.error]: errorText && errorText?.length > 0 },
           [className]
         )}
-        onClick={() => ref.current?.focus()}>
+        onClick={() => ref.current?.focus()}
+      >
         <div>
           {label && (
             <label className={cls.label}>
@@ -69,7 +70,7 @@ export const InputPassword: React.FC<Props> = memo(
           </div>
         </div>
         {errorText && (
-          <Text className={cls.errorText} variant={TextVariants.ERROR}>
+          <Text className={cls.errorText} variant="error">
             {errorText || ''}
           </Text>
         )}

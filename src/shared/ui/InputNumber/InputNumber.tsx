@@ -1,7 +1,8 @@
 import React, { type ChangeEvent, memo, useRef } from 'react'
 
-import { classNames } from '../../helpers/classNames'
-import { Text, TextVariants } from '../Text/Text'
+import { classNames } from '@shared/helpers/classNames'
+import { Text } from '@shared/ui/Text/Text'
+
 import cls from './InputNumber.module.scss'
 
 type Props = {
@@ -58,12 +59,11 @@ export const InputNumber: React.FC<Props> = memo(
 
     return (
       <div
-        className={classNames(
-          cls.wrapper,
-          { [cls.error]: errorText && errorText.length > 0 },
-          [className]
-        )}
-        onClick={() => ref.current?.focus()}>
+        className={classNames(cls.wrapper, { [cls.error]: errorText && errorText.length > 0 }, [
+          className,
+        ])}
+        onClick={() => ref.current?.focus()}
+      >
         {label && (
           <label className={cls.label}>
             {label} {required ? ' *' : ''}
@@ -71,11 +71,7 @@ export const InputNumber: React.FC<Props> = memo(
         )}
         <input
           type="number"
-          value={
-            displayZero
-              ? value?.toString()
-              : value?.toString().replace(/^0+/, '')
-          }
+          value={displayZero ? value?.toString() : value?.toString().replace(/^0+/, '')}
           placeholder={placeholder}
           onChange={onChangeHandler}
           onWheel={onWheelHandler}
@@ -84,7 +80,7 @@ export const InputNumber: React.FC<Props> = memo(
           ref={ref}
         />
         {errorText && (
-          <Text className={cls.errorText} variant={TextVariants.ERROR}>
+          <Text className={cls.errorText} variant="error">
             {errorText}
           </Text>
         )}

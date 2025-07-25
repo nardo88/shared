@@ -1,12 +1,12 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 
-import SearchIcon from '../icons/SearchIcon'
+import { classNames } from '@shared/helpers/classNames'
+import { Text } from '@shared/ui/Text/Text'
+import Close from '@shared/ui/icons/Close'
+import CopyIcon from '@shared/ui/icons/CopyIcon'
+import SearchIcon from '@shared/ui/icons/SearchIcon'
 
 import cls from './Input.module.scss'
-import { classNames } from '../../helpers/classNames'
-import CopyIcon from '../icons/CopyIcon'
-import { Text, TextVariants } from '../Text/Text'
-import Close from '../icons/Close'
 
 type Props = {
   label?: string
@@ -69,11 +69,13 @@ export const Input: React.FC<Props> = memo(
     return (
       <div
         className={classNames(cls.wrapper, {}, [className])}
-        onClick={() => ref.current?.focus()}>
+        onClick={() => ref.current?.focus()}
+      >
         <div
           className={classNames(cls.top, {
             [cls.error]: errorText && errorText?.length > 0,
-          })}>
+          })}
+        >
           {label && (
             <label className={cls.label}>
               {label}
@@ -89,7 +91,8 @@ export const Input: React.FC<Props> = memo(
         <div
           className={classNames(cls.inputWrapper, {
             [cls.error]: errorText && errorText?.length > 0,
-          })}>
+          })}
+        >
           {iconSearch ? <SearchIcon className={cls.searchIcon} /> : null}
           <input
             className={classNames(cls.input, {
@@ -100,9 +103,7 @@ export const Input: React.FC<Props> = memo(
             ref={ref}
             value={value}
             onChange={(e) => {
-              onChange?.(
-                limit ? e.target.value.slice(0, limit) : e.target.value
-              )
+              onChange?.(limit ? e.target.value.slice(0, limit) : e.target.value)
             }}
             onBlur={handleBlur}
             placeholder={placeholder}
@@ -120,7 +121,7 @@ export const Input: React.FC<Props> = memo(
             ) : null)}
         </div>
         {errorText && (
-          <Text className={cls.errorText} variant={TextVariants.ERROR}>
+          <Text className={cls.errorText} variant="error">
             {errorText || ''}
           </Text>
         )}

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconComponentProps } from "./IconComponent";
+import IconComponent, { type IconComponentProps } from './IconComponent'
 
 interface ArrowType extends IconComponentProps {
-  active?: boolean;
+  active?: boolean
 }
 
 export const ArrowTop: React.FC<ArrowType> = (props): React.ReactNode => (
@@ -16,4 +16,4 @@ export const ArrowTop: React.FC<ArrowType> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)

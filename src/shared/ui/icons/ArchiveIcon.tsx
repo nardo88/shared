@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const ArchiveIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} fill="none" id="archive-icon">
@@ -12,6 +12,6 @@ const ArchiveIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default ArchiveIcon;
+export default ArchiveIcon

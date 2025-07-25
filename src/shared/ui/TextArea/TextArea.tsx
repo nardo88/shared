@@ -9,9 +9,10 @@ import {
   useState,
 } from 'react'
 
+import { classNames } from '@shared/helpers/classNames'
+import { Text } from '@shared/ui/Text/Text'
+
 import cls from './TextArea.module.scss'
-import { classNames } from '../../helpers/classNames'
-import { Text, TextVariants } from '../Text/Text'
 
 type Props = {
   label?: string | ReactNode
@@ -61,10 +62,7 @@ export const TextArea: FC<Props> = (props) => {
   const [lines, setLines] = useState(options.lines)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-  const calculateContentHeight = (
-    ref: HTMLTextAreaElement,
-    lineHeight: number
-  ): number => {
+  const calculateContentHeight = (ref: HTMLTextAreaElement, lineHeight: number): number => {
     const height = ref.style.height
     let offsetHeight = ref.offsetHeight
     const scrollHeight = ref.scrollHeight
@@ -91,10 +89,7 @@ export const TextArea: FC<Props> = (props) => {
     }
   }
 
-  const calculateHeight = (
-    ref: HTMLTextAreaElement,
-    textareaLineHeight: number
-  ) => {
+  const calculateHeight = (ref: HTMLTextAreaElement, textareaLineHeight: number) => {
     const lineHeight = parseInt(String(textareaLineHeight), 10)
     const height = calculateContentHeight(ref, lineHeight)
     const numberOfLines = Math.ceil(height / lineHeight)
@@ -103,10 +98,7 @@ export const TextArea: FC<Props> = (props) => {
 
   const updateLines = () => {
     if (textareaRef.current) {
-      const currentLines = calculateHeight(
-        textareaRef.current,
-        textareaLineHeight
-      )
+      const currentLines = calculateHeight(textareaRef.current, textareaLineHeight)
       if (lines !== currentLines) {
         setLines(
           currentLines <= textareaMaxLines
@@ -129,9 +121,7 @@ export const TextArea: FC<Props> = (props) => {
     return onChange(v)
   }
 
-  const newMessageTextChangeClick = (
-    event: ChangeEvent<HTMLTextAreaElement>
-  ) => {
+  const newMessageTextChangeClick = (event: ChangeEvent<HTMLTextAreaElement>) => {
     onChangeHandler(event.target.value)
   }
 
@@ -168,11 +158,10 @@ export const TextArea: FC<Props> = (props) => {
 
   return (
     <div
-      className={classNames(
-        cls.TextArea,
-        { [cls.error]: errorText && errorText?.length > 0 },
-        [className]
-      )}>
+      className={classNames(cls.TextArea, { [cls.error]: errorText && errorText?.length > 0 }, [
+        className,
+      ])}
+    >
       <div className={cls.top}>
         {label && (
           <>
@@ -205,7 +194,7 @@ export const TextArea: FC<Props> = (props) => {
         />
       </div>
       {errorText && (
-        <Text className={cls.errorText} variant={TextVariants.ERROR}>
+        <Text className={cls.errorText} variant="error">
           {errorText || ''}
         </Text>
       )}

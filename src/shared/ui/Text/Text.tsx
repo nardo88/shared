@@ -1,11 +1,8 @@
-import React, {
-  type CSSProperties,
-  type MouseEvent,
-  type ReactNode,
-} from 'react'
+import React, { type CSSProperties, type MouseEvent, type ReactNode } from 'react'
+
+import { classNames } from '@shared/helpers/classNames'
 
 import cls from './Text.module.scss'
-import { classNames } from '../../helpers/classNames'
 
 export type TextVariants =
   | 'error'
@@ -43,7 +40,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.error, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </p>
       )}
@@ -53,7 +51,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.success, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </p>
       )}
@@ -63,7 +62,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.helper, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </p>
       )}
@@ -73,7 +73,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.text, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </p>
       )}
@@ -83,7 +84,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.h1, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </h1>
       )}
@@ -93,7 +95,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.h2, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </h2>
       )}
@@ -102,7 +105,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.h3, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </h3>
       )}
@@ -112,7 +116,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.h4, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </h4>
       )}
@@ -122,7 +127,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.h5, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </h5>
       )}
@@ -132,7 +138,8 @@ export const Text: React.FC<Props> = ({
           title={title}
           onClick={(e) => onClick?.(e)}
           className={classNames(cls.small, {}, [className])}
-          style={style}>
+          style={style}
+        >
           {children}
         </p>
       )}

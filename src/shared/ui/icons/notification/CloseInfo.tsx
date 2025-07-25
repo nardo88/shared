@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from ".././IconComponent";
+import IconComponent, { type IconProps } from '.././IconComponent'
 
 const CloseInfo: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    {...props}
-    id="crossError"
-    fill="none"
-    size={20}
-    viewBox="0 0 20 20"
-  >
+  <IconComponent {...props} id="crossError" fill="none" size={20} viewBox="0 0 20 20">
     <g id="close">
       <path
         id="Vector"
@@ -18,6 +12,6 @@ const CloseInfo: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </g>
   </IconComponent>
-);
+)
 
-export default CloseInfo;
+export default CloseInfo

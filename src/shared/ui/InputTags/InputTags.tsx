@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
 
-import { Text, TextVariants } from '../Text/Text'
+import { classNames } from '@shared/helpers/classNames'
+import { Text } from '@shared/ui/Text/Text'
+import Close from '@shared/ui/icons/Close'
 
 import cls from './InputTags.module.scss'
-import { classNames } from '../../helpers/classNames'
-import Close from '../icons/Close'
 
 interface InputTagsProps {
   label?: string
@@ -54,12 +54,9 @@ export const InputTags = (props: InputTagsProps) => {
 
   return (
     <div
-      className={classNames(
-        cls.InputTags,
-        { [cls.error]: !!errorText?.trim() },
-        [className]
-      )}
-      onClick={() => ref.current?.focus()}>
+      className={classNames(cls.InputTags, { [cls.error]: !!errorText?.trim() }, [className])}
+      onClick={() => ref.current?.focus()}
+    >
       <div className={cls.top}>
         {label && (
           <label className={cls.label}>
@@ -99,7 +96,7 @@ export const InputTags = (props: InputTagsProps) => {
       </div>
 
       {errorText && (
-        <Text className={cls.errorText} variant={TextVariants.ERROR}>
+        <Text className={cls.errorText} variant="error">
           {errorText}
         </Text>
       )}

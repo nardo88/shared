@@ -1,8 +1,10 @@
-import { classNames } from '../../helpers/classNames'
-import Icon404 from '../icons/Icon404'
-import { Text } from '../Text/Text'
-import Button from '../Button/Button'
 import type { FC } from 'react'
+
+import { classNames } from '@shared/helpers/classNames'
+import Button from '@shared/ui/Button/Button'
+import { Text } from '@shared/ui/Text/Text'
+import Icon404 from '@shared/ui/icons/Icon404'
+
 import cls from './NotFoundPage.module.scss'
 
 interface MainProps {

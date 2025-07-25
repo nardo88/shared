@@ -1,27 +1,19 @@
-import {
-  type FC,
-  type MouseEvent,
-  type PointerEvent,
-  useMemo,
-  useRef,
-} from 'react'
+import { type FC, type MouseEvent, type PointerEvent, useMemo, useRef } from 'react'
+
+import { classNames } from '@shared/helpers/classNames'
 
 import { getLeftPercentValue } from '../../modules'
+import type { ICustomRangePercentProps } from '../../types'
 import { InputValue } from '../InputValue/InputValue'
 
 import cls from './Percent.module.scss'
-import type { ICustomRangePercentProps } from '../../types'
-import { classNames } from '../../../../helpers/classNames'
 
 export const Percent: FC<ICustomRangePercentProps> = (props) => {
   const { value, onChange, errorText, disabled } = props
   const cursor = useRef<HTMLDivElement | null>(null)
   const line = useRef<HTMLDivElement | null>(null)
 
-  const items = useMemo(
-    () => Array.apply(null, Array(10)).map((_, i) => i + 1),
-    []
-  )
+  const items = useMemo(() => Array.apply(null, Array(10)).map((_, i) => i + 1), [])
 
   const dragStart = (e: PointerEvent) => {
     e.stopPropagation()
@@ -34,8 +26,7 @@ export const Percent: FC<ICustomRangePercentProps> = (props) => {
       const percent = Math.floor((dif / lineWidth) * 100)
       const newValue = value + percent
       if (newValue > 100 || newValue < 0) return
-      if (value + percent < 100 || value + percent > 0)
-        onChange(value + percent)
+      if (value + percent < 100 || value + percent > 0) onChange(value + percent)
     }
 
     document.onpointermove = dragMove
@@ -66,7 +57,8 @@ export const Percent: FC<ICustomRangePercentProps> = (props) => {
               [cls.defaultCursor]: disabled,
             })}
             draggable={false}
-            onClick={(e) => clickHandler(e, item)}>
+            onClick={(e) => clickHandler(e, item)}
+          >
             <div
               className={cls.greenValue}
               style={{ width: `${getLeftPercentValue(item, value)}%` }}
@@ -82,12 +74,7 @@ export const Percent: FC<ICustomRangePercentProps> = (props) => {
           draggable={false}
         />
       </div>
-      <InputValue
-        onChange={onChange}
-        value={value}
-        errorText={errorText}
-        disabled={disabled}
-      />
+      <InputValue onChange={onChange} value={value} errorText={errorText} disabled={disabled} />
     </div>
   )
 }

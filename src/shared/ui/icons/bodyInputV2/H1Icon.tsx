@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "../IconComponent";
+import IconComponent, { type IconProps } from '../IconComponent'
 
 export const H1Icon: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    {...props}
-    viewBox="0 0 18 18"
-    width={18}
-    height={18}
-    size={18}
-  >
+  <IconComponent {...props} viewBox="0 0 18 18" width={18} height={18} size={18}>
     <path
       d="M14.25 13.5V7.5L12.75 9"
       stroke="#181C25"
@@ -67,4 +61,4 @@ export const H1Icon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)

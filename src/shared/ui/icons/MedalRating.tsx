@@ -1,21 +1,19 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 export enum MedalRatingVariants {
-  "one" = "#FFC128",
-  "two" = "#B6C0D6",
-  "three" = "#AA8D62",
+  'one' = '#FFC128',
+  'two' = '#B6C0D6',
+  'three' = '#AA8D62',
 }
 
 interface IMedalRatingProps extends IconProps {
-  fill?: MedalRatingVariants;
+  fill?: MedalRatingVariants
 }
 
-export const MedalRating: React.FC<IMedalRatingProps> = (
-  props
-): React.ReactNode => {
-  const { fill = "#FFC128", ...data } = props;
+export const MedalRating: React.FC<IMedalRatingProps> = (props): React.ReactNode => {
+  const { fill = '#FFC128', ...data } = props
   return (
     <IconComponent viewBox="0 0 32 32" size={32} fill="none" {...data}>
       <path
@@ -34,5 +32,5 @@ export const MedalRating: React.FC<IMedalRatingProps> = (
         strokeWidth="2.10697"
       />
     </IconComponent>
-  );
-};
+  )
+}

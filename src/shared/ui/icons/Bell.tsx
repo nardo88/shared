@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const Bell: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="bell" viewBox="0 0 36 36" fill="none">
@@ -13,6 +13,6 @@ const Bell: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default Bell;
+export default Bell

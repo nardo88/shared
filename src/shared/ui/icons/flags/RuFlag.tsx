@@ -1,20 +1,12 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "../IconComponent";
+import IconComponent, { type IconProps } from '../IconComponent'
 
 const RuFlag: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="ruflag" viewBox="0 0 32 24">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="24"
-      viewBox="0 0 32 32"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 32">
       <path fill="#1435a1" d="M1 11H31V21H1z" />
-      <path
-        d="M5,4H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z"
-        fill="#fff"
-      />
+      <path d="M5,4H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z" fill="#fff" />
       <path
         d="M5,20H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z"
         transform="rotate(180 16 24)"
@@ -31,6 +23,6 @@ const RuFlag: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </svg>
   </IconComponent>
-);
+)
 
-export default RuFlag;
+export default RuFlag

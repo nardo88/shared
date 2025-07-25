@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { type IconProps } from "./IconComponent";
+import { type IconProps } from './IconComponent'
 
 export const AlertIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" {...props}>
@@ -19,4 +19,4 @@ export const AlertIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </svg>
-);
+)

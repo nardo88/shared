@@ -1,12 +1,9 @@
-import React, {
-  type CSSProperties,
-  type MouseEvent,
-  type ReactNode,
-} from 'react'
+import React, { type CSSProperties, type MouseEvent, type ReactNode } from 'react'
+
+import { classNames } from '@shared/helpers/classNames'
+import type IconComponent from '@shared/ui/icons/IconComponent'
 
 import cls from './Button.module.scss'
-import type IconComponent from '../icons/IconComponent'
-import { classNames } from '../../helpers/classNames'
 
 export type ButtonVariants = 'primary' | 'secondary' | 'tertiary' | 'icon'
 
@@ -40,7 +37,8 @@ const Button: React.FC<Props> = ({
       disabled={disabled}
       type={type}
       onClick={onClick}
-      style={style}>
+      style={style}
+    >
       {Icon && <Icon />}
       {children}
     </button>

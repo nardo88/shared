@@ -9,13 +9,13 @@ import {
   useState,
 } from 'react'
 
-import { Checkbox } from '../Checkbox/Checkbox'
-import { Text, TextVariants } from '../Text/Text'
+import { classNames } from '@shared/helpers/classNames'
+import { Checkbox } from '@shared/ui/Checkbox/Checkbox'
+import Portal from '@shared/ui/Portal'
+import { Text } from '@shared/ui/Text/Text'
+import ArrowBottom from '@shared/ui/icons/ArrowBottom'
 
 import cls from './CheckboxSelector.module.scss'
-import { classNames } from '../../helpers/classNames'
-import ArrowBottom from '../icons/ArrowBottom'
-import Portal from '../Portal'
 
 export type OptionType = {
   id: string
@@ -54,8 +54,7 @@ interface IPosition {
 }
 
 const DropdownList: FC<DropdownList> = (props) => {
-  const { setIsOpen, options, value, onChange, disabled, position, wrapper } =
-    props
+  const { setIsOpen, options, value, onChange, disabled, position, wrapper } = props
   const ref = useRef<HTMLDivElement>(null)
 
   const hideList = (e: globalThis.MouseEvent) => {
@@ -73,8 +72,7 @@ const DropdownList: FC<DropdownList> = (props) => {
     return () => {
       window.removeEventListener('click', hideList)
       window.removeEventListener('resize', hide)
-      if (wrapper?.current)
-        wrapper?.current.removeEventListener('click', hideList)
+      if (wrapper?.current) wrapper.current.removeEventListener('click', hideList)
     }
   }, [])
 
@@ -84,7 +82,8 @@ const DropdownList: FC<DropdownList> = (props) => {
         ref={ref}
         className={cls.listWrapper}
         style={position}
-        onClick={(e) => e.stopPropagation()}>
+        onClick={(e) => e.stopPropagation()}
+      >
         {options.map((item) => (
           <Checkbox
             key={item.id}
@@ -140,11 +139,10 @@ export const CheckboxSelector = (props: CheckboxSelectorProps) => {
         { [cls.error]: errorText && errorText?.length > 0 },
         [className]
       )}
-      onClick={clickHandler}>
+      onClick={clickHandler}
+    >
       {label && (
-        <label className={classNames(cls.label, { [cls.required]: required })}>
-          {label}
-        </label>
+        <label className={classNames(cls.label, { [cls.required]: required })}>{label}</label>
       )}
       <div className={cls.inputArea}>
         {showValues && (
@@ -159,7 +157,8 @@ export const CheckboxSelector = (props: CheckboxSelectorProps) => {
                       e.stopPropagation()
                       onChange(item)
                     }
-                  }}>
+                  }}
+                >
                   {options.find((i) => i.id === item)?.title}
                 </div>
               ))}
@@ -181,7 +180,7 @@ export const CheckboxSelector = (props: CheckboxSelectorProps) => {
         />
       )}
       {errorText && (
-        <Text className={cls.errorText} variant={TextVariants.ERROR}>
+        <Text className={cls.errorText} variant="error">
           {errorText}
         </Text>
       )}

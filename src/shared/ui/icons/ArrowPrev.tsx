@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconComponentProps } from "./IconComponent";
+import IconComponent, { type IconComponentProps } from './IconComponent'
 
 interface ArrowType extends IconComponentProps {
-  active?: boolean;
+  active?: boolean
 }
 
 const ArrowPrev: React.FC<ArrowType> = (props): React.ReactNode => (
@@ -14,14 +14,8 @@ const ArrowPrev: React.FC<ArrowType> = (props): React.ReactNode => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <circle
-      cx="25"
-      cy="25"
-      r="24"
-      transform="rotate(-180 25 25)"
-      strokeWidth="2"
-    />
+    <circle cx="25" cy="25" r="24" transform="rotate(-180 25 25)" strokeWidth="2" />
   </IconComponent>
-);
+)
 
-export default ArrowPrev;
+export default ArrowPrev

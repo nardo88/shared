@@ -8,11 +8,11 @@ import {
   useState,
 } from 'react'
 
-import { Text } from '../Text/Text'
+import { classNames } from '@shared/helpers/classNames'
+import Portal from '@shared/ui/Portal'
+import { Text } from '@shared/ui/Text/Text'
 
 import cls from './ContextMenu.module.scss'
-import { classNames } from '../../helpers/classNames'
-import Portal from '../Portal'
 
 export interface IOptions {
   title: string
@@ -70,10 +70,8 @@ export function ContextMenu(props: IContextMenuProps) {
         const listRect = list.current.getBoundingClientRect()
         const parentRect = parent.current.getBoundingClientRect()
 
-        const needToLeft =
-          parentRect.width + parentRect.x - e.pageX < listRect.width
-        const needToTop =
-          window.innerHeight - e.pageY + window.scrollY < listRect.height
+        const needToLeft = parentRect.width + parentRect.x - e.pageX < listRect.width
+        const needToTop = window.innerHeight - e.pageY + window.scrollY < listRect.height
 
         if (needToLeft && needToTop) {
           list.current.classList.add(cls.moveTopLeft)
@@ -116,31 +114,27 @@ export function ContextMenu(props: IContextMenuProps) {
 
   return (
     <div
-      className={classNames(
-        cls.contextMenu,
-        { [cls.current]: isOpen && styleCurrent },
-        [
-          className,
-          currentClassName && isOpen && styleCurrent ? currentClassName : '',
-        ]
-      )}
+      className={classNames(cls.contextMenu, { [cls.current]: isOpen && styleCurrent }, [
+        className,
+        currentClassName && isOpen && styleCurrent ? currentClassName : '',
+      ])}
       onContextMenu={menuContextHandler}
-      ref={ref}>
+      ref={ref}
+    >
       {children}
       {isOpen && (
         <Portal>
           <div
             className={cls.menuWrapper}
             ref={list}
-            style={{ top: `${position?.y}px`, left: `${position?.x}px` }}>
+            style={{ top: `${position?.y}px`, left: `${position?.x}px` }}
+          >
             <ul
               className={classNames(cls.menuList, {}, [listClassName])}
-              onContextMenu={(e) => e.stopPropagation()}>
+              onContextMenu={(e) => e.stopPropagation()}
+            >
               {options.map((item) => (
-                <li
-                  className={cls.menuItem}
-                  onClick={item.onClick}
-                  key={item.title}>
+                <li className={cls.menuItem} onClick={item.onClick} key={item.title}>
                   {item.icon && item.icon}
                   <Text>{item.title}</Text>
                 </li>

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { type IconProps } from "./IconComponent";
+import { type IconProps } from './IconComponent'
 
 const BigFileIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <svg
@@ -33,6 +33,6 @@ const BigFileIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </svg>
-);
+)
 
-export default BigFileIcon;
+export default BigFileIcon

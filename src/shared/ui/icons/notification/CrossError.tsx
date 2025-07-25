@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from ".././IconComponent";
+import IconComponent, { type IconProps } from '.././IconComponent'
 
 const CrossError: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    {...props}
-    id="crossError"
-    fill="none"
-    size={12}
-    viewBox="0 0 12 12"
-  >
+  <IconComponent {...props} id="crossError" fill="none" size={12} viewBox="0 0 12 12">
     <g id="Mark">
       <path
         id="Vector"
@@ -21,6 +15,6 @@ const CrossError: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </g>
   </IconComponent>
-);
+)
 
-export default CrossError;
+export default CrossError

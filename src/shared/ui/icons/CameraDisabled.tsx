@@ -1,16 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 export const CameraDisabled: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    viewBox="0 0 24 24"
-    width={24}
-    height={24}
-    size={24}
-    fill="none"
-    {...props}
-  >
+  <IconComponent viewBox="0 0 24 24" width={24} height={24} size={24} fill="none" {...props}>
     <path
       d="M4 3L22 21M16 11V10L20.553 7.724C20.7054 7.64784 20.8748 7.61188 21.045 7.61955C21.2152 7.62721 21.3806 7.67825 21.5256 7.76781C21.6706 7.85736 21.7902 7.98248 21.8733 8.13127C21.9563 8.28007 21.9999 8.44761 22 8.618V15.382C22.0001 15.5903 21.935 15.7935 21.814 15.9631C21.693 16.1327 21.522 16.2603 21.325 16.328"
       strokeWidth="1.3"
@@ -24,4 +17,4 @@ export const CameraDisabled: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const BreadcrumbsIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="arrow" viewBox="0 0 24 24" fill="none">
@@ -12,6 +12,6 @@ const BreadcrumbsIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default BreadcrumbsIcon;
+export default BreadcrumbsIcon

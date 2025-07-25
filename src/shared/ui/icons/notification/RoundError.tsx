@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from ".././IconComponent";
+import IconComponent, { type IconProps } from '.././IconComponent'
 
 const RoundError: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    {...props}
-    id="roundError"
-    fill="none"
-    size={18}
-    viewBox="0 0 18 18"
-  >
+  <IconComponent {...props} id="roundError" fill="none" size={18} viewBox="0 0 18 18">
     <path
       id="Vector"
       opacity="0.2"
@@ -17,6 +11,6 @@ const RoundError: React.FC<IconProps> = (props): React.ReactNode => (
       fill="#FF3C38"
     />
   </IconComponent>
-);
+)
 
-export default RoundError;
+export default RoundError

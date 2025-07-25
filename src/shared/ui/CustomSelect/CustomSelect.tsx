@@ -9,11 +9,12 @@ import {
   useState,
 } from 'react'
 
-import { classNames } from '../../helpers/classNames'
-import Close from '../icons/Close'
-import ArrowBottom from '../icons/ArrowBottom'
-import { Text, TextVariants } from '../Text/Text'
-import Portal from '../Portal'
+import { classNames } from '@shared/helpers/classNames'
+import Portal from '@shared/ui/Portal'
+import { Text } from '@shared/ui/Text/Text'
+import ArrowBottom from '@shared/ui/icons/ArrowBottom'
+import Close from '@shared/ui/icons/Close'
+
 import cls from './CustomSelect.module.scss'
 
 export type OptionType = {
@@ -72,22 +73,15 @@ const DropList: FC<IDropListProps> = (props) => {
     return () => {
       window.removeEventListener('click', hideList)
       window.removeEventListener('resize', hide)
-      if (wrapper?.current)
-        wrapper?.current.removeEventListener('click', hideList)
+      if (wrapper?.current) wrapper?.current.removeEventListener('click', hideList)
     }
   }, [])
   return (
     <Portal>
-      <div
-        className={cls.dropDown}
-        style={position}
-        onClick={(e) => e.stopPropagation()}>
+      <div className={cls.dropDown} style={position} onClick={(e) => e.stopPropagation()}>
         <ul>
           {options.map((item) => (
-            <li
-              key={item.id}
-              className={cls.selectOption}
-              onClick={() => changeSelect(item)}>
+            <li key={item.id} className={cls.selectOption} onClick={() => changeSelect(item)}>
               {item.title}
             </li>
           ))}
@@ -133,7 +127,8 @@ export const CustomSelect = (props: PropsType) => {
           className={classNames(cls.label, {
             [cls.error]: errorText && errorText.length > 0,
             [cls.required]: required,
-          })}>
+          })}
+        >
           {label}
         </label>
       )}
@@ -144,7 +139,8 @@ export const CustomSelect = (props: PropsType) => {
           [cls.error]: errorText && errorText.length > 0,
           [cls.cup]: options.length > 0,
         })}
-        onClick={(e) => options.length && !disabled && clickHandler(e)}>
+        onClick={(e) => options.length && !disabled && clickHandler(e)}
+      >
         <span>{value?.title || ''}</span>
 
         <div>
@@ -154,7 +150,8 @@ export const CustomSelect = (props: PropsType) => {
               onClick={(e) => {
                 e.stopPropagation()
                 onClear()
-              }}>
+              }}
+            >
               <Close />
             </span>
           )}
@@ -174,7 +171,7 @@ export const CustomSelect = (props: PropsType) => {
         />
       )}
       {errorText && (
-        <Text className={cls.errorText} variant={TextVariants.ERROR}>
+        <Text className={cls.errorText} variant="error">
           {errorText}
         </Text>
       )}

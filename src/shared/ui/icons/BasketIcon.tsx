@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const BasketIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent size={24} viewBox="0 0 24 24" fill="none" {...props}>
@@ -15,6 +15,6 @@ const BasketIcon: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </g>
   </IconComponent>
-);
+)
 
-export default BasketIcon;
+export default BasketIcon

@@ -1,23 +1,16 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const AddIcon: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    {...props}
-    id="add"
-    viewBox="0 0 24 24"
-    width={24}
-    height={24}
-    size={24}
-  >
+  <IconComponent {...props} id="add" viewBox="0 0 24 24" width={24} height={24} size={24}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width={24}
       height={24}
-      color={"#000000"}
-      fill={"none"}
+      color={'#000000'}
+      fill={'none'}
       {...props}
     >
       <path
@@ -34,6 +27,6 @@ const AddIcon: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </svg>
   </IconComponent>
-);
+)
 
-export default AddIcon;
+export default AddIcon

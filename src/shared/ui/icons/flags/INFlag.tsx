@@ -1,20 +1,12 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "../IconComponent";
+import IconComponent, { type IconProps } from '../IconComponent'
 
 const INFlag: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="inflag" viewBox="0 0 32 24">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="24"
-      viewBox="0 0 32 32"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 32">
       <path fill="#fff" d="M1 11H31V21H1z" />
-      <path
-        d="M5,4H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z"
-        fill="#e06535"
-      />
+      <path d="M5,4H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z" fill="#e06535" />
       <path
         d="M5,20H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z"
         transform="rotate(180 16 24)"
@@ -35,6 +27,6 @@ const INFlag: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </svg>
   </IconComponent>
-);
+)
 
-export default INFlag;
+export default INFlag

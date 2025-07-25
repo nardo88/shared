@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const CheckmarkIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="clear" fill="none">
@@ -10,6 +10,6 @@ const CheckmarkIcon: React.FC<IconProps> = (props): React.ReactNode => (
       fill="#9DC234"
     />
   </IconComponent>
-);
+)
 
-export default CheckmarkIcon;
+export default CheckmarkIcon

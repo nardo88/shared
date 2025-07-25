@@ -1,15 +1,10 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "../IconComponent";
+import IconComponent, { type IconProps } from '../IconComponent'
 
 const UKFlag: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="ukflag" viewBox="0 0 32 24">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="24"
-      viewBox="0 0 32 32"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 32">
       <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65" />
       <path
         d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z"
@@ -57,6 +52,6 @@ const UKFlag: React.FC<IconProps> = (props): React.ReactNode => (
       />
     </svg>
   </IconComponent>
-);
+)
 
-export default UKFlag;
+export default UKFlag

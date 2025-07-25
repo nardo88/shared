@@ -1,49 +1,50 @@
-import { type FC, type KeyboardEvent, useRef } from "react";
+import { type FC, type KeyboardEvent, useRef } from 'react'
 
-import cls from "./InputValue.module.scss";
-import { classNames } from "../../../../helpers/classNames";
+import { classNames } from '@shared/helpers/classNames'
+
+import cls from './InputValue.module.scss'
 
 interface InputValueProps {
-  value: number;
-  onChange: (val: number) => void;
-  max?: number;
-  errorText?: string | null;
-  disabled?: boolean;
-  step?: number;
+  value: number
+  onChange: (val: number) => void
+  max?: number
+  errorText?: string | null
+  disabled?: boolean
+  step?: number
 }
 
 export const InputValue: FC<InputValueProps> = (props) => {
-  const { value, onChange, max, errorText, disabled, step = 1 } = props;
-  const ref = useRef<HTMLInputElement>(null);
+  const { value, onChange, max, errorText, disabled, step = 1 } = props
+  const ref = useRef<HTMLInputElement>(null)
 
   const increment = () => {
-    const maxValue = max || 100;
-    if (value === maxValue || disabled) return;
-    onChange(value + step);
-  };
+    const maxValue = max || 100
+    if (value === maxValue || disabled) return
+    onChange(value + step)
+  }
 
   const decrement = () => {
-    if (value === 0 || disabled) return;
-    onChange(value - step);
-  };
+    if (value === 0 || disabled) return
+    onChange(value - step)
+  }
 
   const onWheelHandler = (e: React.WheelEvent<HTMLInputElement>) => {
     if (document.activeElement === ref.current) {
-      e.preventDefault();
-      ref.current?.blur();
+      e.preventDefault()
+      ref.current?.blur()
     }
-  };
+  }
 
   const keyDownHandler = (e: KeyboardEvent) => {
-    if (e.key === "ArrowUp") {
-      e.preventDefault();
-      increment();
+    if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      increment()
     }
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      decrement();
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      decrement()
     }
-  };
+  }
 
   return (
     <div className={classNames(cls.valueWrapper, { [cls.error]: !!errorText })}>
@@ -57,15 +58,10 @@ export const InputValue: FC<InputValueProps> = (props) => {
             const result =
               step === 1
                 ? Math.round(parseFloat(e.target.value))
-                : Number(
-                    (
-                      Math.round(Number(parseFloat(e.target.value)) / step) *
-                      step
-                    ).toFixed(1)
-                  );
-            const maxValue = max || 100;
-            if (result < 0 || result > maxValue || Number.isNaN(result)) return;
-            onChange(result);
+                : Number((Math.round(Number(parseFloat(e.target.value)) / step) * step).toFixed(1))
+            const maxValue = max || 100
+            if (result < 0 || result > maxValue || Number.isNaN(result)) return
+            onChange(result)
           }}
           ref={ref}
           onWheel={onWheelHandler}
@@ -76,8 +72,8 @@ export const InputValue: FC<InputValueProps> = (props) => {
       <div className={cls.percentArrows}>
         <span
           onClick={(e) => {
-            e.stopPropagation();
-            increment();
+            e.stopPropagation()
+            increment()
           }}
           className={classNames(cls.controlArrow, {
             [cls.defaultCursor]: disabled,
@@ -87,8 +83,8 @@ export const InputValue: FC<InputValueProps> = (props) => {
         </span>
         <span
           onClick={(e) => {
-            e.stopPropagation();
-            decrement();
+            e.stopPropagation()
+            decrement()
           }}
           className={classNames(cls.controlArrow, {
             [cls.defaultCursor]: disabled,
@@ -98,5 +94,5 @@ export const InputValue: FC<InputValueProps> = (props) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}

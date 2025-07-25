@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const Chat: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="chat">
@@ -11,6 +11,6 @@ const Chat: React.FC<IconProps> = (props): React.ReactNode => (
       fill="#331C20"
     />
   </IconComponent>
-);
+)
 
-export default Chat;
+export default Chat

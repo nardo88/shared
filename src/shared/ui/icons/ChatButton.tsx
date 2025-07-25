@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const ChatButton: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="chat_button">
@@ -16,6 +16,6 @@ const ChatButton: React.FC<IconProps> = (props): React.ReactNode => (
       strokeWidth="1.8"
     />
   </IconComponent>
-);
+)
 
-export default ChatButton;
+export default ChatButton

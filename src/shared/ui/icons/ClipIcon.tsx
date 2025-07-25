@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const ClipIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="clip-icon" viewBox="0 0 16 16" fill="none">
@@ -12,6 +12,6 @@ const ClipIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinecap="round"
     />
   </IconComponent>
-);
+)
 
-export default ClipIcon;
+export default ClipIcon

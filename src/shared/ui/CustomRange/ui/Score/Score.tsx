@@ -1,18 +1,19 @@
 import {
+  type FC,
+  type MouseEvent,
+  type PointerEvent,
   useEffect,
   useMemo,
   useRef,
   useState,
-  type FC,
-  type MouseEvent,
-  type PointerEvent,
 } from 'react'
 
+import { classNames } from '@shared/helpers/classNames'
+
+import type { ICustomRangeScoreProps } from '../../types'
 import { InputValue } from '../InputValue/InputValue'
 
 import cls from './Score.module.scss'
-import type { ICustomRangeScoreProps } from '../../types'
-import { classNames } from '../../../../helpers/classNames'
 
 const getLeftScoreValue = (item: number, value: number) => {
   if (item === value || item < value) return 100
@@ -25,15 +26,7 @@ const getLeftPermanentValue = (value: number, total: number) => {
 }
 
 export const Score: FC<ICustomRangeScoreProps> = (props) => {
-  const {
-    max,
-    onChange,
-    value,
-    errorText,
-    disabled,
-    limit = 20,
-    step = 1,
-  } = props
+  const { max, onChange, value, errorText, disabled, limit = 20, step = 1 } = props
   const cursor = useRef<HTMLDivElement | null>(null)
   const line = useRef<HTMLDivElement | null>(null)
   const [width, setWidth] = useState(0)
@@ -61,10 +54,7 @@ export const Score: FC<ICustomRangeScoreProps> = (props) => {
         const newValue =
           step === 1
             ? value + Math.floor((max * percent) / 100)
-            : value +
-              Number(
-                (Math.floor((max * percent) / 100 / step) * step).toFixed(1)
-              )
+            : value + Number((Math.floor((max * percent) / 100 / step) * step).toFixed(1))
         if (newValue >= 0 && newValue <= max) {
           onChange(newValue)
         }
@@ -76,16 +66,9 @@ export const Score: FC<ICustomRangeScoreProps> = (props) => {
         const dif = event.clientX - posX // в пикселях
         const newValue =
           step === 1
-            ? Math.floor(
-                (posX - start + dif + (childWidth / 2 - value * 2)) / childWidth
-              )
+            ? Math.floor((posX - start + dif + (childWidth / 2 - value * 2)) / childWidth)
             : Number((((posX - start + dif) / childWidth) * step).toFixed(1))
-        if (
-          v !== newValue &&
-          newValue >= 0 &&
-          newValue <= max &&
-          newValue % step === 0
-        ) {
+        if (v !== newValue && newValue >= 0 && newValue <= max && newValue % step === 0) {
           onChange(newValue)
           v = newValue
         }
@@ -114,9 +97,7 @@ export const Score: FC<ICustomRangeScoreProps> = (props) => {
     if (step === 1) {
       return onChange(Math.floor((max * percent) / 100))
     }
-    onChange(
-      Number((Math.floor((max * percent) / 100 / step) * step).toFixed(1))
-    )
+    onChange(Number((Math.floor((max * percent) / 100 / step) * step).toFixed(1)))
   }
 
   const getCursorPosition = () => {
@@ -141,10 +122,9 @@ export const Score: FC<ICustomRangeScoreProps> = (props) => {
         ref={line}
         draggable={false}
         style={{
-          gridTemplateColumns: `repeat(${
-            items.length > limit ? 1 : items.length
-          },1fr)`,
-        }}>
+          gridTemplateColumns: `repeat(${items.length > limit ? 1 : items.length},1fr)`,
+        }}
+      >
         {items.length <= limit &&
           items.map((item) => (
             <div
@@ -153,7 +133,8 @@ export const Score: FC<ICustomRangeScoreProps> = (props) => {
                 [cls.defaultCursor]: disabled,
               })}
               draggable={false}
-              onClick={(e) => clickHandler(e, item)}>
+              onClick={(e) => clickHandler(e, item)}
+            >
               <div
                 className={cls.greenValue}
                 style={{ width: `${getLeftScoreValue(item, value)}%` }}
@@ -168,7 +149,8 @@ export const Score: FC<ICustomRangeScoreProps> = (props) => {
               [cls.defaultCursor]: disabled,
             })}
             draggable={false}
-            onClick={(e) => clickHandler(e)}>
+            onClick={(e) => clickHandler(e)}
+          >
             <div
               className={cls.greenValue}
               style={{ width: `${getLeftPermanentValue(value, max)}%` }}

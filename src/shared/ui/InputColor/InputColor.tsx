@@ -1,10 +1,10 @@
 import { type FC } from 'react'
 
-import { classNames } from '../../helpers/classNames'
+import { classNames } from '@shared/helpers/classNames'
+import useDebounce from '@shared/helpers/useDebounce'
+import { Text } from '@shared/ui/Text/Text'
 
 import cls from './InputColor.module.scss'
-import useDebounce from '../../helpers/useDebounce'
-import { Text } from '../Text/Text'
 
 interface InputColorProps {
   className?: string
@@ -28,11 +28,7 @@ export const InputColor: FC<InputColorProps> = (props) => {
       )}
       <div className={cls.colorPickerWrapper}>
         <div className={cls.inputWrapper} style={{ background: value }}>
-          <input
-            type="color"
-            className={cls.input}
-            onChange={(e) => debounce(e.target.value)}
-          />
+          <input type="color" className={cls.input} onChange={(e) => debounce(e.target.value)} />
         </div>
         <Text>{value}</Text>
       </div>

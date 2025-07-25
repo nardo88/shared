@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "../IconComponent";
+import IconComponent, { type IconProps } from '../IconComponent'
 
 const SuccessIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} viewBox="0 0 76 75" fill="none" id="m-success-icon">
@@ -17,6 +17,6 @@ const SuccessIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default SuccessIcon;
+export default SuccessIcon

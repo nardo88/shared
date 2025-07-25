@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 const Left: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} fill="none" id="left">
@@ -12,6 +12,6 @@ const Left: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
+)
 
-export default Left;
+export default Left

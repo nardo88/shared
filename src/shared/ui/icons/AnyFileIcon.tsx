@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { type IconProps } from "./IconComponent";
+import { type IconProps } from './IconComponent'
 
 const AnyFileIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <svg
@@ -26,6 +26,6 @@ const AnyFileIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </svg>
-);
+)
 
-export default AnyFileIcon;
+export default AnyFileIcon
