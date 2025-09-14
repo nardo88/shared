@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 
 import { classNames } from '@shared/helpers/classNames'
-import useDebounce from '@shared/helpers/useDebounce'
+import useDebounce from '@shared/hooks/useDebounce'
 import { Text } from '@shared/ui/Text/Text'
 
 import cls from './InputColor.module.scss'

@@ -2,6 +2,7 @@
   --additional-warning: #ffa800;
   --additional-error: #ff3c38;
   --additional-success: #439522;
+  --additional-info: #1c23ef;
   --content-700: #a0a9bc;
   --content-800: #66707f;
   --content-900: #181c25;
@@ -11,6 +12,7 @@
   --base-100: #ffffff;
 
   --shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  --navbar-height: 58px;
 }
 
 @mixin scroll($color: var(--content-700), $width: 5px, $height: 8px) {

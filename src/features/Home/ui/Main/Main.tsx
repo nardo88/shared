@@ -1,10 +1,18 @@
 import { type FC } from 'react'
 
+import type { NotificationType } from '@features/Notifications'
+
+import { useNotifications } from '@shared/hooks/useNotifications'
+import Button from '@shared/ui/Button/Button'
 import { Text } from '@shared/ui/Text/Text'
 
 import cls from './Main.module.scss'
 
 export const Home: FC = () => {
+  const { addNotifications } = useNotifications()
+  const addNot = (type: NotificationType) => {
+    addNotifications({ text: 'Информационное сообщение', type })
+  }
   return (
     <div className={cls.home}>
       <Text variant="h1">Заголовок h1</Text>
@@ -17,6 +25,10 @@ export const Home: FC = () => {
       <Text variant="success">success</Text>
       <Text>Далеко-далеко за словесными горами в стране.</Text>
       <Text variant="small">Далеко-далеко за словесными горами в стране.</Text>
+      <Button onClick={() => addNot('info')}>add info</Button>
+      <Button onClick={() => addNot('error')}>add error</Button>
+      <Button onClick={() => addNot('warning')}>add warning</Button>
+      <Button onClick={() => addNot('success')}>add success</Button>
     </div>
   )
 }

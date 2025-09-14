@@ -1,0 +1,20 @@
+.warningIcon {
+  fill: var(--additional-warning);
+  height: 20px;
+  width: 20px;
+}
+
+.infoIcon {
+  fill: var(--additional-info);
+}
+.successIcon {
+  height: 22px;
+  width: 22px;
+  fill: var(--additional-success);
+}
+
+.iconWrapper {
+  width: 28px;
+  display: flex;
+  justify-content: center;
+}

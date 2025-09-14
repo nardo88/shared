@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+import { Notifications } from '@features/Notifications'
 import { Page404 } from '@pages/404'
 import { HomePage } from '@pages/Home/HomePage'
 
@@ -15,5 +16,9 @@ const router = createBrowserRouter([
 ])
 
 export function App() {
-  return <RouterProvider router={router} />
+  return (
+    <Notifications>
+      <RouterProvider router={router} />
+    </Notifications>
+  )
 }
