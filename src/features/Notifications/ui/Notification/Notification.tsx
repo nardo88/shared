@@ -25,8 +25,8 @@ export const Notification: FC<INotificationProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const hide = () => {
-    ref.current?.classList?.remove(cls.show)
-    setTimeout(() => setNotifications((p) => p.filter((i) => i._id !== _id)))
+    ref.current?.classList?.add(cls.hide)
+    setTimeout(() => setNotifications((p) => p.filter((i) => i._id !== _id)), 500)
   }
 
   useEffect(() => {
@@ -34,6 +34,19 @@ export const Notification: FC<INotificationProps> = (props) => {
       ref.current?.classList.add(cls.show)
     })
   }, [])
+
+  useEffect(() => {
+    let isNeed = true
+    if (timeout) {
+      setTimeout(() => {
+        if (isNeed) hide()
+      }, timeout)
+
+      return () => {
+        isNeed = false
+      }
+    }
+  }, [timeout])
 
   return (
     <div
@@ -52,6 +65,12 @@ export const Notification: FC<INotificationProps> = (props) => {
         <Text className={classNames(cls.text, {}, [cls[type]])}>{text}</Text>
       </div>
       <CloseIcon className={classNames(cls.close, {}, [cls[type]])} />
+      {timeout && (
+        <div
+          className={classNames(cls.progress, {}, [cls[type]])}
+          style={{ animationDuration: `${timeout / 1000}s` }}
+        />
+      )}
     </div>
   )
 }

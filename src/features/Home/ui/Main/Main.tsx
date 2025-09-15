@@ -11,7 +11,11 @@ import cls from './Main.module.scss'
 export const Home: FC = () => {
   const { addNotifications } = useNotifications()
   const addNot = (type: NotificationType) => {
-    addNotifications({ text: 'Информационное сообщение', type })
+    addNotifications({
+      text: 'Информационное сообщение очень длинно для просмотра как ведет себя верстка',
+      type,
+      timeout: 3000,
+    })
   }
   return (
     <div className={cls.home}>
