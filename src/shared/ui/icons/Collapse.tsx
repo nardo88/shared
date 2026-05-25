@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
-const CollapseIcon: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent {...props} id="clear" fill="none">
+export const CollapseIcon: React.FC<IconProps> = (props): React.ReactNode => (
+  <IconComponent {...props} fill="none">
     <path
       d="M7 7L12 12L7 17M13 7L18 12L13 17"
       strokeWidth="2"
@@ -11,6 +11,4 @@ const CollapseIcon: React.FC<IconProps> = (props): React.ReactNode => (
       strokeLinejoin="round"
     />
   </IconComponent>
-);
-
-export default CollapseIcon;
+)

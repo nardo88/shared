@@ -2,7 +2,7 @@ import { type FC } from 'react'
 
 import { classNames } from '@shared/helpers/classNames'
 import { type IconProps } from '@shared/ui/icons/IconComponent'
-import Loading from '@shared/ui/icons/Loading'
+import { Loading } from '@shared/ui/icons/Loading'
 
 import cls from './Spinner.module.scss'
 

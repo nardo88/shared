@@ -13,7 +13,7 @@ import { classNames } from '@shared/helpers/classNames'
 import { Checkbox } from '@shared/ui/Checkbox/Checkbox'
 import Portal from '@shared/ui/Portal'
 import { Text } from '@shared/ui/Text/Text'
-import ArrowBottom from '@shared/ui/icons/ArrowBottom'
+import { ArrowBottom } from '@shared/ui/icons/ArrowBottom'
 
 import cls from './CheckboxSelector.module.scss'
 

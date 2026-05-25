@@ -2,9 +2,9 @@ import React, { memo, useEffect, useRef, useState } from 'react'
 
 import { classNames } from '@shared/helpers/classNames'
 import { Text } from '@shared/ui/Text/Text'
-import Close from '@shared/ui/icons/Close'
-import CopyIcon from '@shared/ui/icons/CopyIcon'
-import SearchIcon from '@shared/ui/icons/SearchIcon'
+import { CloseIcon } from '@shared/ui/icons/Close'
+import { CopyIcon } from '@shared/ui/icons/CopyIcon'
+import { SearchIcon } from '@shared/ui/icons/SearchIcon'
 
 import cls from './Input.module.scss'
 
@@ -117,7 +117,7 @@ export const Input: React.FC<Props> = memo(
                 onClick={() => (canCopy ? copyText(value) : null)}
               />
             ) : !disabled && canClear ? (
-              <Close size={18} onClick={handleClear} className={cls.icon} />
+              <CloseIcon size={18} onClick={handleClear} className={cls.icon} />
             ) : null)}
         </div>
         {errorText && (

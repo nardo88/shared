@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 
 import { classNames } from '@shared/helpers/classNames'
 import { Text } from '@shared/ui/Text/Text'
-import Close from '@shared/ui/icons/Close'
+import { CloseIcon } from '@shared/ui/icons/Close'
 
 import cls from './InputTags.module.scss'
 
@@ -75,7 +75,7 @@ export const InputTags = (props: InputTagsProps) => {
           <span key={index} className={cls.tagItem}>
             {item}
             <button onClick={() => removeTag(index)} disabled={disabled}>
-              <Close />
+              <CloseIcon />
             </button>
           </span>
         ))}

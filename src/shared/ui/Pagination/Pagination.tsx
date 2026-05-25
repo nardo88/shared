@@ -1,10 +1,9 @@
 import { type Dispatch, type SetStateAction, useEffect, useMemo, useState } from 'react'
 
 import { classNames } from '@shared/helpers/classNames'
-import Left from '@shared/ui/icons/Left'
-import Right from '@shared/ui/icons/Right'
 
 import { CustomSelect } from '../CustomSelect/CustomSelect'
+import { ArrowBottom } from '../icons/ArrowBottom'
 
 import cls from './Pagination.module.scss'
 
@@ -127,7 +126,7 @@ const Pagination = ({
               if (currentPage !== 1) handleClick(currentPage - 1)
             }}
           >
-            <Left />
+            <ArrowBottom />
           </div>
         </li>
 
@@ -165,7 +164,7 @@ const Pagination = ({
               if (currentPage !== Math.ceil(total / pageCount)) handleClick(currentPage + 1)
             }}
           >
-            <Right />
+            <ArrowBottom />
           </div>
         </li>
       </ul>

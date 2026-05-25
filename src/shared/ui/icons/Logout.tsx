@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 export const Logout: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    width={28}
-    height={28}
-    viewBox="0 0 28 28"
-    fill="none"
-    {...props}
-  >
+  <IconComponent viewBox="0 0 28 28" size={24} fill="none" {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -26,4 +20,4 @@ export const Logout: React.FC<IconProps> = (props): React.ReactNode => (
       fill="white"
     />
   </IconComponent>
-);
+)

@@ -1,17 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
-export const RemovedUserIcon: React.FC<IconProps> = (
-  props
-): React.ReactNode => (
-  <IconComponent
-    {...props}
-    width={24}
-    height={24}
-    viewBox="0 0 24 24"
-    fill="none"
-  >
+export const RemovedUserIcon: React.FC<IconProps> = (props): React.ReactNode => (
+  <IconComponent {...props} fill="none">
     <path
       d="M13 22H6.59087C5.04549 22 3.81631 21.248 2.71266 20.1966C0.453365 18.0441 4.1628 16.324 5.57757 15.4816C7.97679 14.053 10.8425 13.6575 13.5 14.2952"
       stroke="currentColor"
@@ -31,4 +23,4 @@ export const RemovedUserIcon: React.FC<IconProps> = (
       strokeLinecap="round"
     />
   </IconComponent>
-);
+)

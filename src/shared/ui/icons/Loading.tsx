@@ -2,13 +2,14 @@ import React from 'react'
 
 import { type IconProps } from './IconComponent'
 
-const Loading: React.FC<IconProps> = (props): React.ReactNode => (
+export const Loading: React.FC<IconProps> = (props): React.ReactNode => (
   <svg
     version="1.0"
     width={props?.size || '64px'}
     height={props?.size || '64px'}
     viewBox="0 0 128 128"
-    {...props}>
+    {...props}
+  >
     <g>
       <linearGradient id="linear-gradient">
         <stop offset="0%" stopColor="var(--additional-success)" />
@@ -39,5 +40,3 @@ const Loading: React.FC<IconProps> = (props): React.ReactNode => (
     </g>
   </svg>
 )
-
-export default Loading

@@ -1,14 +1,7 @@
 import IconComponent, { type IconProps } from './IconComponent'
 
 export const PlaceholderIcon: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    {...props}
-    fill="none"
-    id="PlaceholderIcon"
-    viewBox="0 0 46 46"
-    width={46}
-    height={46}
-  >
+  <IconComponent {...props} fill="none" id="PlaceholderIcon" viewBox="0 0 46 46" size={46}>
     <g clipPath="url(#clip0_9924_58539)">
       <path
         d="M46 23C46 35.7017 35.7017 46 23 46C10.2982 46 0 35.7017 0 23C0 10.2982 10.2982 0 23 0C35.7017 0 46 10.2982 46 23Z"

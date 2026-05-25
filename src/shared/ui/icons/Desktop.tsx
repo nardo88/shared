@@ -1,6 +1,6 @@
-import { type FC } from "react";
+import { type FC } from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
 export const Desktop: FC<IconProps> = (props) => {
   return (
@@ -12,9 +12,9 @@ export const Desktop: FC<IconProps> = (props) => {
       />
       <path
         d="M12.4609 15.2076C12.4609 15.5447 12.1877 15.8181 11.8506 15.8181C11.5135 15.8181 11.2401 15.5447 11.2401 15.2076C11.2401 14.8705 11.5135 14.5973 11.8506 14.5973C12.1877 14.5973 12.4609 14.8705 12.4609 15.2076Z"
-        stroke-width="1"
         stroke-miterlimit="3.86874"
+        stroke-width="1"
       />
     </IconComponent>
-  );
-};
+  )
+}

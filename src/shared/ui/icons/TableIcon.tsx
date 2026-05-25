@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import IconComponent, { type IconProps } from "./IconComponent";
+import IconComponent, { type IconProps } from './IconComponent'
 
-const TableIcon: React.FC<IconProps> = (props): React.ReactNode => (
-  <IconComponent
-    {...props}
-    id="filter"
-    fill="none"
-    size={24}
-    viewBox="0 0 24 24"
-  >
+export const TableIcon: React.FC<IconProps> = (props): React.ReactNode => (
+  <IconComponent {...props} fill="none">
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -17,6 +11,4 @@ const TableIcon: React.FC<IconProps> = (props): React.ReactNode => (
       fill="var(--cta-primary)"
     />
   </IconComponent>
-);
-
-export default TableIcon;
+)

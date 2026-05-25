@@ -12,8 +12,8 @@ import {
 import { classNames } from '@shared/helpers/classNames'
 import Portal from '@shared/ui/Portal'
 import { Text } from '@shared/ui/Text/Text'
-import ArrowBottom from '@shared/ui/icons/ArrowBottom'
-import Close from '@shared/ui/icons/Close'
+import { ArrowBottom } from '@shared/ui/icons/ArrowBottom'
+import { CloseIcon } from '@shared/ui/icons/Close'
 
 import cls from './CustomSelect.module.scss'
 
@@ -152,7 +152,7 @@ export const CustomSelect = (props: PropsType) => {
                 onClear()
               }}
             >
-              <Close />
+              <CloseIcon />
             </span>
           )}
           <span className={classNames(cls.arrow, { [cls.rotate]: isOpen })}>

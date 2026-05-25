@@ -1,6 +1,6 @@
 import IconComponent, { type IconProps } from './IconComponent'
 
-const SuccessIcon: React.FC<IconProps> = (props): React.ReactNode => (
+export const SuccessIcon: React.FC<IconProps> = (props): React.ReactNode => (
   <IconComponent {...props} id="success-icon" fill="none" viewBox="0 0 35 26">
     <path
       d="M34.001 1L13.001 25L1.00098 13"
@@ -11,5 +11,3 @@ const SuccessIcon: React.FC<IconProps> = (props): React.ReactNode => (
     />
   </IconComponent>
 )
-
-export default SuccessIcon

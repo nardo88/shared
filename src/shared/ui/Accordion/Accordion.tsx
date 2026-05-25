@@ -1,7 +1,7 @@
 import { type FC, type ReactNode } from 'react'
 
 import { classNames } from '@shared/helpers/classNames'
-import ArrowBottom from '@shared/ui/icons/ArrowBottom'
+import { ArrowBottom } from '@shared/ui/icons/ArrowBottom'
 
 import cls from './Accordion.module.scss'
 

@@ -22,7 +22,7 @@ import {
 import { classNames } from '@shared/helpers/classNames'
 import Portal from '@shared/ui/Portal'
 import { Text } from '@shared/ui/Text/Text'
-import SettingsIcon from '@shared/ui/icons/SettingsIcon'
+import { SettingsIcon } from '@shared/ui/icons/SettingsIcon'
 
 import cls from './SettingsMenu.module.scss'
 

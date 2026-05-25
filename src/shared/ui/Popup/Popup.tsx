@@ -3,7 +3,7 @@ import { type ReactNode, useEffect, useRef } from 'react'
 import { classNames } from '@shared/helpers/classNames'
 import Portal from '@shared/ui/Portal'
 import { Text } from '@shared/ui/Text/Text'
-import CloseIcon from '@shared/ui/icons/CloseIcon'
+import { CloseIcon } from '@shared/ui/icons/Close'
 
 import cls from './Popup.module.scss'
 

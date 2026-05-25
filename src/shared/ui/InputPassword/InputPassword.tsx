@@ -2,8 +2,8 @@ import React, { type ChangeEvent, memo, useRef, useState } from 'react'
 
 import { classNames } from '@shared/helpers/classNames'
 import { Text } from '@shared/ui/Text/Text'
-import CloseEye from '@shared/ui/icons/CloseEye'
-import OpenEye from '@shared/ui/icons/OpenEye'
+import { CloseEye } from '@shared/ui/icons/CloseEye'
+import { OpenEye } from '@shared/ui/icons/OpenEye'
 
 import cls from './InputPassword.module.scss'
 
