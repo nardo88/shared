@@ -4,11 +4,11 @@ import { NotificationContext } from '@features/Notifications/context'
 
 import { classNames } from '@shared/helpers/classNames'
 import { Text } from '@shared/ui/Text/Text'
+import { InfoIcon } from '@shared/ui/icons'
 import CloseIcon from '@shared/ui/icons/CloseIcon'
 import ErrorIcon from '@shared/ui/icons/ErrorIcon'
-import { SuccessIcon } from '@shared/ui/icons/SuccessIcon'
+import SuccessIcon from '@shared/ui/icons/SuccessIcon'
 import { WarningIcon } from '@shared/ui/icons/WarningIcon'
-import { InfoIcon } from '@shared/ui/icons/progressStatuses'
 
 import type { INotification } from '../../types'
 
