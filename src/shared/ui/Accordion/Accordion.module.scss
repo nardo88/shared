@@ -26,6 +26,9 @@
 .arrow {
   transform: rotate(0);
   transition: transform 0.3s ease-in-out;
+  path {
+    stroke: var(--content-900);
+  }
 }
 .arrowOpen {
   transform: rotate(180deg);

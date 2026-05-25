@@ -23,7 +23,6 @@ import { DownloadIcon } from './DownloadIcon'
 import { EditIcon } from './EditIcon'
 import { EditPageIcon } from './EditPageIcon'
 import { EmailIcon } from './EmailIcon'
-import ErrorIcon from './ErrorIcon'
 import { ExpertIcon } from './Expert'
 import { FileIcon } from './FileIcon'
 import { FilterIcon } from './Filter'
@@ -67,7 +66,6 @@ import { SortAscIcon } from './SortAscIcon'
 import { SortDescIcon } from './SortDescIcon'
 import { StarIcon } from './StarIcon'
 import { StepIcon } from './StepIcon'
-import { SuccessIcon } from './SuccessIcon'
 import SupportIcon from './SupportIcon'
 import { TableIcon } from './TableIcon'
 import { TallIcon } from './TallIcon'
@@ -157,7 +155,6 @@ const ICONS = {
   Resize,
   ReviewIcon,
   SaveIcon,
-  SuccessIcon,
   ScreenShare,
   SearchIcon,
   SettingIcon,
@@ -183,7 +180,6 @@ const ICONS = {
   VolumeMutedIcon,
   WideIcon,
   WarningIcon,
-  ErrorIcon,
 }
 
 export const AllIcons: Story = {

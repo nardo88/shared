@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { SaveIcon } from '../icons/Save'
 import Button from './Button'
 
 const meta: Meta<typeof Button> = {
@@ -20,5 +21,24 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
     title: 'for example',
+  },
+}
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+    title: 'for example',
+  },
+}
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary',
+    title: 'for example',
+  },
+}
+export const Icon: Story = {
+  args: {
+    variant: 'icon',
+    title: 'for example',
+    children: <SaveIcon />,
   },
 }

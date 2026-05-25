@@ -14,7 +14,7 @@ export const Home: FC = () => {
     addNotifications({
       text: 'Информационное сообщение очень длинно для просмотра как ведет себя верстка',
       type,
-      timeout: 3000,
+      timeout: 0,
     })
   }
   return (

@@ -4,10 +4,9 @@ import { NotificationContext } from '@features/Notifications/context'
 
 import { classNames } from '@shared/helpers/classNames'
 import { Text } from '@shared/ui/Text/Text'
+import { CheckIcon } from '@shared/ui/icons/CheckIcon'
 import { CloseIcon } from '@shared/ui/icons/Close'
-import { ErrorIcon } from '@shared/ui/icons/ErrorIcon'
 import { InfoIcon } from '@shared/ui/icons/InfoIcon'
-import { SuccessIcon } from '@shared/ui/icons/SuccessIcon'
 import { WarningIcon } from '@shared/ui/icons/WarningIcon'
 
 import type { INotification } from '../../types'
@@ -55,9 +54,9 @@ export const Notification: FC<INotificationProps> = (props) => {
       className={classNames(cls.notification, {}, [className, cls[type]])}
     >
       <div className={cls.iconWrapper}>
-        {type === 'success' && <SuccessIcon className={cls.successIcon} />}
+        {type === 'success' && <CheckIcon className={cls.successIcon} />}
         {type === 'info' && <InfoIcon className={cls.infoIcon} />}
-        {type === 'error' && <ErrorIcon className={cls.errorIcon} />}
+        {type === 'error' && <CloseIcon className={cls.errorIcon} />}
         {type === 'warning' && <WarningIcon className={cls.warningIcon} />}
       </div>
       <div>
@@ -65,7 +64,7 @@ export const Notification: FC<INotificationProps> = (props) => {
         <Text className={classNames(cls.text, {}, [cls[type]])}>{text}</Text>
       </div>
       <CloseIcon className={classNames(cls.close, {}, [cls[type]])} />
-      {timeout && (
+      {!!timeout && (
         <div
           className={classNames(cls.progress, {}, [cls[type]])}
           style={{ animationDuration: `${timeout / 1000}s` }}
